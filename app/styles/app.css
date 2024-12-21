@@ -4,8 +4,50 @@
 
 @layer base {
   :root {
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  :root {
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10.6% 1;
+    --foreground: 220, 75%, 4.7%, 1;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
@@ -76,80 +118,30 @@
 
 @layer base {
   :root {
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+    /* Color styles */
+    --brand--950: 0, 0%, 0%, 1;
+    --brand--900: 170, 82.9%, 6.9%, 1;
+    --brand--800: 169, 82.9%, 13.7%, 1;
+    --brand--700: 169, 81.1%, 20.8%, 1;
+    --brand--600: 169, 81.6%, 27.6%, 1;
+    --brand--500: 169, 81.8%, 36.7%, 1;
+    --brand--400: 169, 82%, 41.4%, 1;
+    --brand--300: 169, 82.1%, 48.2%, 1;
+    --brand--200: 169, 81.7%, 55.1%, 1;
+    --brand--100: 169, 81.4%, 62%, 1;
+    --brand--50: 169, 82.3%, 69%, 1;
 
-  .dark {
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  :root {
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
-
-  .dark {
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-@layer base {
-  :root {
-    --foreground-50: 0, 0%, 91%, 1;
-    --foreground-100: 0, 0%, 72.2%, 1;
-    --foreground-200: 0, 0%, 58.8%, 1;
-    --foreground-300: 0, 0%, 40%, 1;
-    --foreground-400: 0, 0%, 28.6%, 1;
-    --foreground-500: 0, 0%, 10.6%, 1;
-    --foreground-600: 0, 0%, 9.8%, 1;
-    --foreground-700: 0, 0%, 7.5%, 1;
-    --foreground-800: 0, 0%, 5.9%, 1;
-    --foreground-900: 0, 0%, 4.3%, 1;
-
-    --brand-50: 140, 54.5%, 95.7%, 1;
-    --brand-100: 139, 52.1%, 86.1%, 1;
-    --brand-200: 140, 52.4%, 79.4%, 1;
-    --brand-300: 140, 51.9%, 69.8%, 1;
-    --brand-400: 140, 52.2%, 63.9%, 1;
-    --brand-500: 140, 52.2%, 54.9%, 1;
-    --brand-600: 140, 42.7%, 50%, 1;
-    --brand-700: 140, 42.7%, 39%, 1;
-    --brand-800: 140, 42.9%, 30.2%, 1;
-    --brand-900: 139, 42.4%, 23.1%, 1;
-
-    --background-50: 240, 100%, 99.8%, 1;
-    --background-100: 0, 0%, 99.2%, 1;
-    --background-200: 240, 20%, 99%, 1;
-    --background-300: 210, 25%, 98.4%, 1;
-    --background-400: 210, 20%, 98%, 1;
-    --background-500: 210, 16.7%, 97.6%, 1;
-    --background-600: 210, 3.6%, 89%, 1;
-    --background-700: 210, 1.3%, 69.4%, 1;
-    --background-800: 210, 0.8%, 53.7%, 1;
-    --background-900: 180, 0.5%, 41%, 1;
+    --foreground--950: 0, 0%, 0%, 1;
+    --foreground--900: 220, 60%, 1%, 1;
+    --foreground--800: 223, 77.8%, 1.8%, 1;
+    --foreground--700: 222, 71.4%, 2.7%, 1;
+    --foreground--600: 219, 77.8%, 3.5%, 1;
+    --foreground--500: 220, 75%, 4.7%, 1;
+    --foreground--400: 220, 77.8%, 5.3%, 1;
+    --foreground--300: 220, 75%, 6.3%, 1;
+    --foreground--200: 220, 73%, 7.3%, 1;
+    --foreground--100: 221, 75.6%, 8%, 1;
+    --foreground--50: 221, 73.9%, 9%, 1;
   }
 }
 

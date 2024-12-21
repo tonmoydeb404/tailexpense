@@ -18,7 +18,7 @@ export default {
       },
       fontFamily: {
         body: ['"Manrope"', "serif"],
-        heading: ['"Oxygen"', "serif"],
+        heading: ['"Fira Sans"', "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,7 +81,6 @@ export default {
         },
         background: {
           DEFAULT: "hsl(var(--background))",
-          ...generateColorObject("background"),
         },
         foreground: {
           DEFAULT: "hsl(var(--foreground))",

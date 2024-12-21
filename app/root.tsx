@@ -12,6 +12,7 @@ import stylesheet from "./styles/app.css?url";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "icon", href: "/brand/logo-mini.svg", type: "image/svg" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
@@ -19,7 +20,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Oxygen:wght@300;400;700&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800;900&family=Manrope:wght@200..800&display=swap",
   },
   { rel: "stylesheet", href: stylesheet },
 ];
