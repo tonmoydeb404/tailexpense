@@ -1,5 +1,5 @@
 import type { MetaArgs } from "react-router";
-import DashboardView from "~/views/dashboard";
+import DashboardHomeView from "~/views/dashboard/home";
 
 export function meta({}: MetaArgs) {
   return [
@@ -9,5 +9,5 @@ export function meta({}: MetaArgs) {
 }
 
 export default function Dashboard() {
-  return <DashboardView />;
+  return <DashboardHomeView />;
 }
