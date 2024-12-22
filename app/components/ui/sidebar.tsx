@@ -248,8 +248,6 @@ const Sidebar = React.forwardRef<
       );
     }
 
-    console.log({ variant, state });
-
     return (
       <>
         <Sheet open={openTab} onOpenChange={setOpenTab} {...props}>

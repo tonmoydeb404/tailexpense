@@ -11,6 +11,7 @@ import {
 } from "~/components/ui/chart";
 import { categories } from "~/data/category";
 import { categoryReports } from "~/data/report";
+import useResponsiveValue from "~/hooks/use-responsive-value";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {};
@@ -31,6 +32,7 @@ const MonthlyUsage = (props: Props) => {
   }));
 
   const total = chartData.reduce((acc, curr) => acc + curr.amount, 0);
+  const innerRadius = useResponsiveValue({ "2xl": 70, sm: 60 });
 
   return (
     <div className="h-full flex flex-col">
@@ -52,7 +54,7 @@ const MonthlyUsage = (props: Props) => {
                 data={chartData}
                 dataKey="amount"
                 nameKey="category"
-                innerRadius={100}
+                innerRadius={innerRadius}
                 strokeWidth={5}
               >
                 <Label
@@ -89,11 +91,8 @@ const MonthlyUsage = (props: Props) => {
           </ChartContainer>
         </CardContent>
         <CardFooter className="flex-col gap-2 text-sm text-center">
-          <div className="flex items-center gap-2 font-medium leading-none">
+          <div className="flex items-center gap-2">
             Expense up by 5.2% this month
-          </div>
-          <div className="leading-none text-muted-foreground">
-            total expense for the last 1 months
           </div>
         </CardFooter>
       </Card>
