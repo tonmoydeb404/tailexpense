@@ -38,7 +38,7 @@ const MonthlyUsage = (props: Props) => {
         Monthly Usage
       </h3>
       <Card className="flex-1 flex flex-col justify-center">
-        <CardContent>
+        <CardContent className="p-0">
           <ChartContainer
             config={chartConfig}
             className="aspect-square max-h-[400px] mx-auto"
@@ -52,7 +52,7 @@ const MonthlyUsage = (props: Props) => {
                 data={chartData}
                 dataKey="amount"
                 nameKey="category"
-                innerRadius={90}
+                innerRadius={100}
                 strokeWidth={5}
               >
                 <Label
@@ -68,7 +68,7 @@ const MonthlyUsage = (props: Props) => {
                           <tspan
                             x={viewBox.cx}
                             y={viewBox.cy}
-                            className="fill-foreground text-3xl font-bold"
+                            className="fill-foreground text-2xl 2xl:text-3xl font-bold"
                           >
                             {formatCurrency(total, "BDT")}
                           </tspan>
@@ -88,7 +88,7 @@ const MonthlyUsage = (props: Props) => {
             </PieChart>
           </ChartContainer>
         </CardContent>
-        <CardFooter className="flex-col gap-2 text-sm">
+        <CardFooter className="flex-col gap-2 text-sm text-center">
           <div className="flex items-center gap-2 font-medium leading-none">
             Expense up by 5.2% this month
           </div>

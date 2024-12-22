@@ -6,11 +6,11 @@ type Props = {};
 
 const StatsSection = (props: Props) => {
   return (
-    <div className="mb-10">
+    <div className="mb-10 w-full">
       <h3 className="text-sm uppercase mb-3 font-medium text-muted-foreground">
         Stats
       </h3>
-      <div className="grid grid-cols-3 w-full gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <Item title="budget" amount={28500 * 100} />
         <Item title="balance" amount={15180 * 100} />
         <Item title="expenses" amount={10312 * 100} />

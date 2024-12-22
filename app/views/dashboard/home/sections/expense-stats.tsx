@@ -53,9 +53,9 @@ const ExpenseStats = () => {
   });
 
   return (
-    <Card className="mb-16">
-      <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
-        <div className="grid flex-1 gap-1 text-center sm:text-left">
+    <Card>
+      <CardHeader className="flex sm:items-center border-b py-5 sm:flex-row px-4 sm:px-5">
+        <div className="grid flex-1 gap-1 text-left">
           <CardTitle>Expense Overview</CardTitle>
           <CardDescription>
             Showing total visitors for the last{" "}
@@ -84,7 +84,7 @@ const ExpenseStats = () => {
           </SelectContent>
         </Select>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent className="pt-6 px-2 sm:px-4">
         <ChartContainer
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"

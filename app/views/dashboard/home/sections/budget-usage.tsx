@@ -29,7 +29,7 @@ const BudgetUsage = () => {
         Budget Usage
       </h3>
       <Card>
-        <CardContent className="py-5">
+        <CardContent className="py-5 px-2 sm:px-4">
           <ChartContainer config={chartConfig} className="max-h-[400px] w-full">
             <BarChart accessibilityLayer data={budgetReports}>
               <CartesianGrid vertical={false} />
