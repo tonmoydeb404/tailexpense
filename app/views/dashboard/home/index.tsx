@@ -13,7 +13,7 @@ const DashboardHomeView = (props: Props) => {
   return (
     <>
       <Header title="Dashboard" links={[{ title: "Home" }]} />
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 mb-16 w-full">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 w-full">
         <div className="xl:col-span-8 2xl:col-span-9">
           <StatsSection />
           <div className="grid grid-cols-12 gap-5 mb-10">
