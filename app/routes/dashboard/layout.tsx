@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import DashboardSidebar from "~/components/layouts/dashboard/sidebar";
-import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar";
+import { SidebarProvider } from "~/components/ui/sidebar";
 
 type Props = {};
 
@@ -8,8 +8,7 @@ const Layout = (props: Props) => {
   return (
     <SidebarProvider>
       <DashboardSidebar />
-      <main>
-        <SidebarTrigger />
+      <main className="w-full my-10 px-5 2xl:px-10">
         <Outlet />
       </main>
     </SidebarProvider>
