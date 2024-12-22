@@ -8,3 +8,9 @@ export interface IBudgetReport {
   expense: number;
   budget: number;
 }
+
+export interface IExpenseReport {
+  _id: string;
+  date: string; // ISO String
+  amount: number;
+}
