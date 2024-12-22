@@ -1,61 +1,10 @@
-import type { ITransaction } from "~/types/transaction";
 import Header from "../common/header";
-import PieChartSection from "./sections/pie-chart";
+import BudgetUsage from "./sections/budget-usage";
+import MonthlyUsage from "./sections/monthly-usage";
 import RecentSection from "./sections/recent";
 import StatsSection from "./sections/stats";
 
 type Props = {};
-
-const transactions: ITransaction[] = [
-  {
-    _id: "1",
-    title: "Salary",
-    type: "INCOME",
-    amount: 500000, // Stored as lowest grade (e.g., cents/paisa)
-    category: "INCOME",
-    date: "2024-12-01T08:30:00Z", // ISO date format
-  },
-  {
-    _id: "2",
-    title: "Groceries",
-    type: "EXPENSE",
-    amount: 7500, // Stored as lowest grade
-    category: "Food",
-    date: "2024-12-02T10:00:00Z",
-  },
-  {
-    _id: "3",
-    title: "Freelance Payment",
-    type: "INCOME",
-    amount: 200000, // Stored as lowest grade
-    category: "Freelance",
-    date: "2024-12-03T15:45:00Z",
-  },
-  {
-    _id: "4",
-    title: "Electricity Bill",
-    type: "EXPENSE",
-    amount: 12000, // Stored as lowest grade
-    category: "Utilities",
-    date: "2024-12-05T18:00:00Z",
-  },
-  {
-    _id: "5",
-    title: "Movie Tickets",
-    type: "EXPENSE",
-    amount: 1500, // Stored as lowest grade
-    category: "Entertainment",
-    date: "2024-12-06T20:00:00Z",
-  },
-  {
-    _id: "6",
-    title: "Gift",
-    type: "INCOME",
-    amount: 10000, // Stored as lowest grade
-    category: "Gift",
-    date: "2024-12-07T12:00:00Z",
-  },
-];
 
 // ----------------------------------------------------------------------
 
@@ -66,10 +15,17 @@ const DashboardHomeView = (props: Props) => {
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-8 2xl:col-span-9">
           <StatsSection />
-          <PieChartSection />
+          <div className="grid grid-cols-12 gap-5">
+            <div className="col-span-4">
+              <MonthlyUsage />
+            </div>
+            <div className="col-span-8">
+              <BudgetUsage />
+            </div>
+          </div>
         </div>
         <div className="col-span-4 2xl:col-span-3">
-          <RecentSection items={transactions} />
+          <RecentSection />
         </div>
       </div>
     </>
