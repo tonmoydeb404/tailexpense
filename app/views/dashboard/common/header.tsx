@@ -12,7 +12,7 @@ type Props = {
 const Header = (props: Props) => {
   const { title, links } = props;
   return (
-    <header className="mt-10 mb-16">
+    <header className="mb-14">
       <h1 className="text-3xl font-bold font-heading mb-2">{title}</h1>
       <div className="flex items-center gap-2">
         <SidebarTrigger className="-ml-1" />

@@ -8,7 +8,7 @@ const Layout = (props: Props) => {
   return (
     <SidebarProvider>
       <DashboardSidebar />
-      <main className="w-full px-5 2xl:px-10">
+      <main className="w-full my-10 px-5 2xl:px-10">
         <Outlet />
       </main>
     </SidebarProvider>

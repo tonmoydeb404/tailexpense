@@ -27,14 +27,14 @@ const Breadcrumbs = (props: Props) => {
           <Fragment key={index}>
             <BreadcrumbItem className="hidden md:block">
               {item.href ? (
-                <BreadcrumbLink href="#">
+                <BreadcrumbLink asChild>
                   <Link to={item.href}>{item.title}</Link>
                 </BreadcrumbLink>
               ) : (
                 <BreadcrumbPage>{item.title}</BreadcrumbPage>
               )}
             </BreadcrumbItem>
-            {array.length < index + 1 && <BreadcrumbSeparator />}
+            {index + 1 !== array.length && <BreadcrumbSeparator />}
           </Fragment>
         ))}
       </BreadcrumbList>
