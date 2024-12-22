@@ -460,6 +460,15 @@
   resolved "https://registry.yarnpkg.com/@mjackson/node-fetch-server/-/node-fetch-server-0.2.0.tgz#577c0c25d8aae9f69a97738b7b0d03d1471cdc49"
   integrity sha512-EMlH1e30yzmTpGLQjlFmaDAjyOeZhng1/XCd7DExR8PNAnG/G1tyruZxEoUe11ClnwGhGrtsdnyyUx1frSzjng==
 
+"@netlify/vite-plugin-react-router@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@netlify/vite-plugin-react-router/-/vite-plugin-react-router-1.0.0.tgz#8ad952fb5bc2e23813f23c8fd710354ce97871a4"
+  integrity sha512-J9xzn2Gdehg3LSEXFrpXLjQm2T2HQEnnlbTH7Ic9mjaz9rwkRmgwbYBn9h5SexQ0mV82jZjhvneblL8VPKiUtQ==
+  dependencies:
+    "@react-router/node" "^7.0.1"
+    isbot "^5.0.0"
+    react-router "^7.0.1"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -923,6 +932,16 @@
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@react-router/node/-/node-7.0.2.tgz#82dcb8463c03d583d836bf5878a2096ebe886b2b"
   integrity sha512-6Of5M2wP9QgYlR+boR0ptPjh3UyfaNvPMKQihowTGjAjUZIoNqz4iBn8ClNsLFbT3KQewcnNTHi2p+Ou7S4ZyQ==
+  dependencies:
+    "@mjackson/node-fetch-server" "^0.2.0"
+    source-map-support "^0.5.21"
+    stream-slice "^0.1.2"
+    undici "^6.19.2"
+
+"@react-router/node@^7.0.1":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@react-router/node/-/node-7.1.0.tgz#50c09801189dbe5c4fd5167810d76ea399fdbc91"
+  integrity sha512-jVGZGU7Jg8+irv61fwExWKKrZpnoMWH2Mce7RwZriFZx4Kx4pOmvGKdniLRBmo3t5GWT63okBfBIhMLgxJBpyA==
   dependencies:
     "@mjackson/node-fetch-server" "^0.2.0"
     source-map-support "^0.5.21"
@@ -2041,7 +2060,7 @@ isarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==
 
-isbot@^5.1.17:
+isbot@^5.0.0, isbot@^5.1.17:
   version "5.1.18"
   resolved "https://registry.yarnpkg.com/isbot/-/isbot-5.1.18.tgz#d5cade53d9428be64af9ff44b7498f74cd6aa00a"
   integrity sha512-df9RdChv1DheItzN5pNKtblc9/otzJYmxjf9GhCZG/f0TCcGCbQFmtM3e+SD0e8EI3/O2tIXPYVaG4FUaIIa6Q==
@@ -2627,6 +2646,16 @@ react-remove-scroll@^2.6.1:
     tslib "^2.1.0"
     use-callback-ref "^1.3.3"
     use-sidecar "^1.1.2"
+
+react-router@^7.0.1:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.1.0.tgz#85911e27aae8c4a57482f2404aef65ac9ca68a10"
+  integrity sha512-VcFhWqkNIcojDRYaUO8qV0Jib52s9ULpCp3nkBbmrvtoCVFRp6tmk3tJ2w9BZauVctA1YRnJlFYDn9iJRuCpGA==
+  dependencies:
+    "@types/cookie" "^0.6.0"
+    cookie "^1.0.1"
+    set-cookie-parser "^2.6.0"
+    turbo-stream "2.4.0"
 
 react-router@^7.0.2:
   version "7.0.2"
