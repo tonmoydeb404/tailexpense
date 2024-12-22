@@ -1,6 +1,6 @@
 import type { ITransaction } from "~/types/transaction";
 
-export const transactions: ITransaction[] = [
+export const recentTransaction: ITransaction[] = [
   {
     _id: "1",
     title: "Salary",
