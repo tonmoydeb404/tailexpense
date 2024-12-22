@@ -50,9 +50,7 @@ const Item = (props: ItemProps) => {
         </div>
 
         <div className="flex-1">
-          <h2 className="text-base font-semibold">
-            {data.title || "Untitled"}
-          </h2>
+          <h2 className="text-base font-medium">{data.title || "Untitled"}</h2>
           <span className="text-sm text-muted-foreground">
             {moment(data.date).format("DD MMM YYYY")}
           </span>

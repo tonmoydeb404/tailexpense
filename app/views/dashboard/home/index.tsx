@@ -1,5 +1,6 @@
 import type { ITransaction } from "~/types/transaction";
 import Header from "../common/header";
+import PieChartSection from "./sections/pie-chart";
 import RecentSection from "./sections/recent";
 import StatsSection from "./sections/stats";
 
@@ -63,10 +64,11 @@ const DashboardHomeView = (props: Props) => {
     <>
       <Header title="Dashboard" links={[{ title: "Home" }]} />
       <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-9">
+        <div className="col-span-8 2xl:col-span-9">
           <StatsSection />
+          <PieChartSection />
         </div>
-        <div className="col-span-3">
+        <div className="col-span-4 2xl:col-span-3">
           <RecentSection items={transactions} />
         </div>
       </div>

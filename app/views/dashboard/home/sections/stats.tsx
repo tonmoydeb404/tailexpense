@@ -10,7 +10,7 @@ const StatsSection = (props: Props) => {
       <h3 className="text-sm uppercase mb-3 font-medium text-muted-foreground">
         Stats
       </h3>
-      <div className="grid grid-cols-4 w-full gap-2">
+      <div className="grid grid-cols-2 2xl:grid-cols-4 w-full gap-2">
         <Item title="budget" amount={28500 * 100} />
         <Item title="balance" amount={15180 * 100} />
         <Item title="expenses" amount={10312 * 100} />
