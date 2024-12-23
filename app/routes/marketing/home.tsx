@@ -3,7 +3,7 @@ import HomeView from "~/views/home";
 
 export function meta({}: MetaArgs) {
   return [
-    { title: "Track Taka" },
+    { title: "Tailexpense" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
