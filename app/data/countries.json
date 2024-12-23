@@ -1,0 +1,1249 @@
+[
+  {
+    "name": "South Georgia",
+    "currency": "SHP",
+    "flag": "https://flagcdn.com/w320/gs.png"
+  },
+  {
+    "name": "Grenada",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/gd.png"
+  },
+  {
+    "name": "Switzerland",
+    "currency": "CHF",
+    "flag": "https://flagcdn.com/w320/ch.png"
+  },
+  {
+    "name": "Sierra Leone",
+    "currency": "SLL",
+    "flag": "https://flagcdn.com/w320/sl.png"
+  },
+  {
+    "name": "Hungary",
+    "currency": "HUF",
+    "flag": "https://flagcdn.com/w320/hu.png"
+  },
+  {
+    "name": "Taiwan",
+    "currency": "TWD",
+    "flag": "https://flagcdn.com/w320/tw.png"
+  },
+  {
+    "name": "Wallis and Futuna",
+    "currency": "XPF",
+    "flag": "https://flagcdn.com/w320/wf.png"
+  },
+  {
+    "name": "Barbados",
+    "currency": "BBD",
+    "flag": "https://flagcdn.com/w320/bb.png"
+  },
+  {
+    "name": "Pitcairn Islands",
+    "currency": "NZD",
+    "flag": "https://flagcdn.com/w320/pn.png"
+  },
+  {
+    "name": "Ivory Coast",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/ci.png"
+  },
+  {
+    "name": "Tunisia",
+    "currency": "TND",
+    "flag": "https://flagcdn.com/w320/tn.png"
+  },
+  {
+    "name": "Italy",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/it.png"
+  },
+  {
+    "name": "Benin",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/bj.png"
+  },
+  {
+    "name": "Indonesia",
+    "currency": "IDR",
+    "flag": "https://flagcdn.com/w320/id.png"
+  },
+  {
+    "name": "Cape Verde",
+    "currency": "CVE",
+    "flag": "https://flagcdn.com/w320/cv.png"
+  },
+  {
+    "name": "Saint Kitts and Nevis",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/kn.png"
+  },
+  {
+    "name": "Laos",
+    "currency": "LAK",
+    "flag": "https://flagcdn.com/w320/la.png"
+  },
+  {
+    "name": "Caribbean Netherlands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/bq.png"
+  },
+  {
+    "name": "Uganda",
+    "currency": "UGX",
+    "flag": "https://flagcdn.com/w320/ug.png"
+  },
+  {
+    "name": "Andorra",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/ad.png"
+  },
+  {
+    "name": "Burundi",
+    "currency": "BIF",
+    "flag": "https://flagcdn.com/w320/bi.png"
+  },
+  {
+    "name": "South Africa",
+    "currency": "ZAR",
+    "flag": "https://flagcdn.com/w320/za.png"
+  },
+  {
+    "name": "France",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/fr.png"
+  },
+  {
+    "name": "Libya",
+    "currency": "LYD",
+    "flag": "https://flagcdn.com/w320/ly.png"
+  },
+  {
+    "name": "Mexico",
+    "currency": "MXN",
+    "flag": "https://flagcdn.com/w320/mx.png"
+  },
+  {
+    "name": "Gabon",
+    "currency": "XAF",
+    "flag": "https://flagcdn.com/w320/ga.png"
+  },
+  {
+    "name": "Northern Mariana Islands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/mp.png"
+  },
+  {
+    "name": "North Macedonia",
+    "currency": "MKD",
+    "flag": "https://flagcdn.com/w320/mk.png"
+  },
+  {
+    "name": "China",
+    "currency": "CNY",
+    "flag": "https://flagcdn.com/w320/cn.png"
+  },
+  {
+    "name": "Yemen",
+    "currency": "YER",
+    "flag": "https://flagcdn.com/w320/ye.png"
+  },
+  {
+    "name": "Saint Barthélemy",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/bl.png"
+  },
+  {
+    "name": "Guernsey",
+    "currency": "GBP",
+    "flag": "https://flagcdn.com/w320/gg.png"
+  },
+  {
+    "name": "Solomon Islands",
+    "currency": "SBD",
+    "flag": "https://flagcdn.com/w320/sb.png"
+  },
+  {
+    "name": "Svalbard and Jan Mayen",
+    "currency": "NOK",
+    "flag": "https://flagcdn.com/w320/sj.png"
+  },
+  {
+    "name": "Faroe Islands",
+    "currency": "DKK",
+    "flag": "https://flagcdn.com/w320/fo.png"
+  },
+  {
+    "name": "Uzbekistan",
+    "currency": "UZS",
+    "flag": "https://flagcdn.com/w320/uz.png"
+  },
+  {
+    "name": "Egypt",
+    "currency": "EGP",
+    "flag": "https://flagcdn.com/w320/eg.png"
+  },
+  {
+    "name": "Senegal",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/sn.png"
+  },
+  {
+    "name": "Sri Lanka",
+    "currency": "LKR",
+    "flag": "https://flagcdn.com/w320/lk.png"
+  },
+  {
+    "name": "Palestine",
+    "currency": "EGP",
+    "flag": "https://flagcdn.com/w320/ps.png"
+  },
+  {
+    "name": "Bangladesh",
+    "currency": "BDT",
+    "flag": "https://flagcdn.com/w320/bd.png"
+  },
+  {
+    "name": "Peru",
+    "currency": "PEN",
+    "flag": "https://flagcdn.com/w320/pe.png"
+  },
+  {
+    "name": "Singapore",
+    "currency": "SGD",
+    "flag": "https://flagcdn.com/w320/sg.png"
+  },
+  {
+    "name": "Turkey",
+    "currency": "TRY",
+    "flag": "https://flagcdn.com/w320/tr.png"
+  },
+  {
+    "name": "Afghanistan",
+    "currency": "AFN",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png"
+  },
+  {
+    "name": "Aruba",
+    "currency": "AWG",
+    "flag": "https://flagcdn.com/w320/aw.png"
+  },
+  {
+    "name": "Cook Islands",
+    "currency": "CKD",
+    "flag": "https://flagcdn.com/w320/ck.png"
+  },
+  {
+    "name": "United Kingdom",
+    "currency": "GBP",
+    "flag": "https://flagcdn.com/w320/gb.png"
+  },
+  {
+    "name": "Zambia",
+    "currency": "ZMW",
+    "flag": "https://flagcdn.com/w320/zm.png"
+  },
+  {
+    "name": "Finland",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/fi.png"
+  },
+  {
+    "name": "Niger",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/ne.png"
+  },
+  {
+    "name": "Christmas Island",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/cx.png"
+  },
+  {
+    "name": "Tokelau",
+    "currency": "NZD",
+    "flag": "https://flagcdn.com/w320/tk.png"
+  },
+  {
+    "name": "Guinea-Bissau",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/gw.png"
+  },
+  {
+    "name": "Azerbaijan",
+    "currency": "AZN",
+    "flag": "https://flagcdn.com/w320/az.png"
+  },
+  {
+    "name": "Réunion",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/re.png"
+  },
+  {
+    "name": "Djibouti",
+    "currency": "DJF",
+    "flag": "https://flagcdn.com/w320/dj.png"
+  },
+  {
+    "name": "North Korea",
+    "currency": "KPW",
+    "flag": "https://flagcdn.com/w320/kp.png"
+  },
+  {
+    "name": "Mauritius",
+    "currency": "MUR",
+    "flag": "https://flagcdn.com/w320/mu.png"
+  },
+  {
+    "name": "Montserrat",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/ms.png"
+  },
+  {
+    "name": "United States Virgin Islands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/vi.png"
+  },
+  {
+    "name": "Colombia",
+    "currency": "COP",
+    "flag": "https://flagcdn.com/w320/co.png"
+  },
+  {
+    "name": "Greece",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/gr.png"
+  },
+  {
+    "name": "Croatia",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/hr.png"
+  },
+  {
+    "name": "Morocco",
+    "currency": "MAD",
+    "flag": "https://flagcdn.com/w320/ma.png"
+  },
+  {
+    "name": "Algeria",
+    "currency": "DZD",
+    "flag": "https://flagcdn.com/w320/dz.png"
+  },
+  {
+    "name": "Antarctica",
+    "flag": "https://flagcdn.com/w320/aq.png"
+  },
+  {
+    "name": "Netherlands",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/nl.png"
+  },
+  {
+    "name": "Sudan",
+    "currency": "SDG",
+    "flag": "https://flagcdn.com/w320/sd.png"
+  },
+  {
+    "name": "Fiji",
+    "currency": "FJD",
+    "flag": "https://flagcdn.com/w320/fj.png"
+  },
+  {
+    "name": "Liechtenstein",
+    "currency": "CHF",
+    "flag": "https://flagcdn.com/w320/li.png"
+  },
+  {
+    "name": "Nepal",
+    "currency": "NPR",
+    "flag": "https://flagcdn.com/w320/np.png"
+  },
+  {
+    "name": "Puerto Rico",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/pr.png"
+  },
+  {
+    "name": "Georgia",
+    "currency": "GEL",
+    "flag": "https://flagcdn.com/w320/ge.png"
+  },
+  {
+    "name": "Pakistan",
+    "currency": "PKR",
+    "flag": "https://flagcdn.com/w320/pk.png"
+  },
+  {
+    "name": "Monaco",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/mc.png"
+  },
+  {
+    "name": "Botswana",
+    "currency": "BWP",
+    "flag": "https://flagcdn.com/w320/bw.png"
+  },
+  {
+    "name": "Lebanon",
+    "currency": "LBP",
+    "flag": "https://flagcdn.com/w320/lb.png"
+  },
+  {
+    "name": "Papua New Guinea",
+    "currency": "PGK",
+    "flag": "https://flagcdn.com/w320/pg.png"
+  },
+  {
+    "name": "Mayotte",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/yt.png"
+  },
+  {
+    "name": "Dominican Republic",
+    "currency": "DOP",
+    "flag": "https://flagcdn.com/w320/do.png"
+  },
+  {
+    "name": "Norfolk Island",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/nf.png"
+  },
+  {
+    "name": "Bouvet Island",
+    "flag": "https://flagcdn.com/w320/bv.png"
+  },
+  {
+    "name": "Qatar",
+    "currency": "QAR",
+    "flag": "https://flagcdn.com/w320/qa.png"
+  },
+  {
+    "name": "Madagascar",
+    "currency": "MGA",
+    "flag": "https://flagcdn.com/w320/mg.png"
+  },
+  {
+    "name": "India",
+    "currency": "INR",
+    "flag": "https://flagcdn.com/w320/in.png"
+  },
+  {
+    "name": "Syria",
+    "currency": "SYP",
+    "flag": "https://flagcdn.com/w320/sy.png"
+  },
+  {
+    "name": "Montenegro",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/me.png"
+  },
+  {
+    "name": "Eswatini",
+    "currency": "SZL",
+    "flag": "https://flagcdn.com/w320/sz.png"
+  },
+  {
+    "name": "Paraguay",
+    "currency": "PYG",
+    "flag": "https://flagcdn.com/w320/py.png"
+  },
+  {
+    "name": "El Salvador",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/sv.png"
+  },
+  {
+    "name": "Ukraine",
+    "currency": "UAH",
+    "flag": "https://flagcdn.com/w320/ua.png"
+  },
+  {
+    "name": "Isle of Man",
+    "currency": "GBP",
+    "flag": "https://flagcdn.com/w320/im.png"
+  },
+  {
+    "name": "Namibia",
+    "currency": "NAD",
+    "flag": "https://flagcdn.com/w320/na.png"
+  },
+  {
+    "name": "United Arab Emirates",
+    "currency": "AED",
+    "flag": "https://flagcdn.com/w320/ae.png"
+  },
+  {
+    "name": "Bulgaria",
+    "currency": "BGN",
+    "flag": "https://flagcdn.com/w320/bg.png"
+  },
+  {
+    "name": "Greenland",
+    "currency": "DKK",
+    "flag": "https://flagcdn.com/w320/gl.png"
+  },
+  {
+    "name": "Germany",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/de.png"
+  },
+  {
+    "name": "Cambodia",
+    "currency": "KHR",
+    "flag": "https://flagcdn.com/w320/kh.png"
+  },
+  {
+    "name": "Iraq",
+    "currency": "IQD",
+    "flag": "https://flagcdn.com/w320/iq.png"
+  },
+  {
+    "name": "French Southern and Antarctic Lands",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/tf.png"
+  },
+  {
+    "name": "Sweden",
+    "currency": "SEK",
+    "flag": "https://flagcdn.com/w320/se.png"
+  },
+  {
+    "name": "Cuba",
+    "currency": "CUC",
+    "flag": "https://flagcdn.com/w320/cu.png"
+  },
+  {
+    "name": "Kyrgyzstan",
+    "currency": "KGS",
+    "flag": "https://flagcdn.com/w320/kg.png"
+  },
+  {
+    "name": "Russia",
+    "currency": "RUB",
+    "flag": "https://flagcdn.com/w320/ru.png"
+  },
+  {
+    "name": "Malaysia",
+    "currency": "MYR",
+    "flag": "https://flagcdn.com/w320/my.png"
+  },
+  {
+    "name": "São Tomé and Príncipe",
+    "currency": "STN",
+    "flag": "https://flagcdn.com/w320/st.png"
+  },
+  {
+    "name": "Cyprus",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/cy.png"
+  },
+  {
+    "name": "Canada",
+    "currency": "CAD",
+    "flag": "https://flagcdn.com/w320/ca.png"
+  },
+  {
+    "name": "Malawi",
+    "currency": "MWK",
+    "flag": "https://flagcdn.com/w320/mw.png"
+  },
+  {
+    "name": "Saudi Arabia",
+    "currency": "SAR",
+    "flag": "https://flagcdn.com/w320/sa.png"
+  },
+  {
+    "name": "Bosnia and Herzegovina",
+    "currency": "BAM",
+    "flag": "https://flagcdn.com/w320/ba.png"
+  },
+  {
+    "name": "Ethiopia",
+    "currency": "ETB",
+    "flag": "https://flagcdn.com/w320/et.png"
+  },
+  {
+    "name": "Spain",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/es.png"
+  },
+  {
+    "name": "Slovenia",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/si.png"
+  },
+  {
+    "name": "Oman",
+    "currency": "OMR",
+    "flag": "https://flagcdn.com/w320/om.png"
+  },
+  {
+    "name": "Saint Pierre and Miquelon",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/pm.png"
+  },
+  {
+    "name": "Macau",
+    "currency": "MOP",
+    "flag": "https://flagcdn.com/w320/mo.png"
+  },
+  {
+    "name": "San Marino",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/sm.png"
+  },
+  {
+    "name": "Lesotho",
+    "currency": "LSL",
+    "flag": "https://flagcdn.com/w320/ls.png"
+  },
+  {
+    "name": "Marshall Islands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/mh.png"
+  },
+  {
+    "name": "Sint Maarten",
+    "currency": "ANG",
+    "flag": "https://flagcdn.com/w320/sx.png"
+  },
+  {
+    "name": "Iceland",
+    "currency": "ISK",
+    "flag": "https://flagcdn.com/w320/is.png"
+  },
+  {
+    "name": "Luxembourg",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/lu.png"
+  },
+  {
+    "name": "Argentina",
+    "currency": "ARS",
+    "flag": "https://flagcdn.com/w320/ar.png"
+  },
+  {
+    "name": "Turks and Caicos Islands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/tc.png"
+  },
+  {
+    "name": "Nauru",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/nr.png"
+  },
+  {
+    "name": "Cocos (Keeling) Islands",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/cc.png"
+  },
+  {
+    "name": "Western Sahara",
+    "currency": "DZD",
+    "flag": "https://flagcdn.com/w320/eh.png"
+  },
+  {
+    "name": "Dominica",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/dm.png"
+  },
+  {
+    "name": "Costa Rica",
+    "currency": "CRC",
+    "flag": "https://flagcdn.com/w320/cr.png"
+  },
+  {
+    "name": "Australia",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/au.png"
+  },
+  {
+    "name": "Thailand",
+    "currency": "THB",
+    "flag": "https://flagcdn.com/w320/th.png"
+  },
+  {
+    "name": "Haiti",
+    "currency": "HTG",
+    "flag": "https://flagcdn.com/w320/ht.png"
+  },
+  {
+    "name": "Tuvalu",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/tv.png"
+  },
+  {
+    "name": "Honduras",
+    "currency": "HNL",
+    "flag": "https://flagcdn.com/w320/hn.png"
+  },
+  {
+    "name": "Equatorial Guinea",
+    "currency": "XAF",
+    "flag": "https://flagcdn.com/w320/gq.png"
+  },
+  {
+    "name": "Saint Lucia",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/lc.png"
+  },
+  {
+    "name": "French Polynesia",
+    "currency": "XPF",
+    "flag": "https://flagcdn.com/w320/pf.png"
+  },
+  {
+    "name": "Belarus",
+    "currency": "BYN",
+    "flag": "https://flagcdn.com/w320/by.png"
+  },
+  {
+    "name": "Latvia",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/lv.png"
+  },
+  {
+    "name": "Palau",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/pw.png"
+  },
+  {
+    "name": "Guadeloupe",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/gp.png"
+  },
+  {
+    "name": "Philippines",
+    "currency": "PHP",
+    "flag": "https://flagcdn.com/w320/ph.png"
+  },
+  {
+    "name": "Gibraltar",
+    "currency": "GIP",
+    "flag": "https://flagcdn.com/w320/gi.png"
+  },
+  {
+    "name": "Denmark",
+    "currency": "DKK",
+    "flag": "https://flagcdn.com/w320/dk.png"
+  },
+  {
+    "name": "Cameroon",
+    "currency": "XAF",
+    "flag": "https://flagcdn.com/w320/cm.png"
+  },
+  {
+    "name": "Guinea",
+    "currency": "GNF",
+    "flag": "https://flagcdn.com/w320/gn.png"
+  },
+  {
+    "name": "Bahrain",
+    "currency": "BHD",
+    "flag": "https://flagcdn.com/w320/bh.png"
+  },
+  {
+    "name": "Suriname",
+    "currency": "SRD",
+    "flag": "https://flagcdn.com/w320/sr.png"
+  },
+  {
+    "name": "DR Congo",
+    "currency": "CDF",
+    "flag": "https://flagcdn.com/w320/cd.png"
+  },
+  {
+    "name": "Somalia",
+    "currency": "SOS",
+    "flag": "https://flagcdn.com/w320/so.png"
+  },
+  {
+    "name": "Czechia",
+    "currency": "CZK",
+    "flag": "https://flagcdn.com/w320/cz.png"
+  },
+  {
+    "name": "New Caledonia",
+    "currency": "XPF",
+    "flag": "https://flagcdn.com/w320/nc.png"
+  },
+  {
+    "name": "Vanuatu",
+    "currency": "VUV",
+    "flag": "https://flagcdn.com/w320/vu.png"
+  },
+  {
+    "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "currency": "GBP",
+    "flag": "https://flagcdn.com/w320/sh.png"
+  },
+  {
+    "name": "Togo",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/tg.png"
+  },
+  {
+    "name": "British Virgin Islands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/vg.png"
+  },
+  {
+    "name": "Kenya",
+    "currency": "KES",
+    "flag": "https://flagcdn.com/w320/ke.png"
+  },
+  {
+    "name": "Niue",
+    "currency": "NZD",
+    "flag": "https://flagcdn.com/w320/nu.png"
+  },
+  {
+    "name": "Heard Island and McDonald Islands",
+    "flag": "https://flagcdn.com/w320/hm.png"
+  },
+  {
+    "name": "Rwanda",
+    "currency": "RWF",
+    "flag": "https://flagcdn.com/w320/rw.png"
+  },
+  {
+    "name": "Estonia",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/ee.png"
+  },
+  {
+    "name": "Romania",
+    "currency": "RON",
+    "flag": "https://flagcdn.com/w320/ro.png"
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "currency": "TTD",
+    "flag": "https://flagcdn.com/w320/tt.png"
+  },
+  {
+    "name": "Guyana",
+    "currency": "GYD",
+    "flag": "https://flagcdn.com/w320/gy.png"
+  },
+  {
+    "name": "Timor-Leste",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/tl.png"
+  },
+  {
+    "name": "Vietnam",
+    "currency": "VND",
+    "flag": "https://flagcdn.com/w320/vn.png"
+  },
+  {
+    "name": "Uruguay",
+    "currency": "UYU",
+    "flag": "https://flagcdn.com/w320/uy.png"
+  },
+  {
+    "name": "Vatican City",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/va.png"
+  },
+  {
+    "name": "Hong Kong",
+    "currency": "HKD",
+    "flag": "https://flagcdn.com/w320/hk.png"
+  },
+  {
+    "name": "Austria",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/at.png"
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/ag.png"
+  },
+  {
+    "name": "Turkmenistan",
+    "currency": "TMT",
+    "flag": "https://flagcdn.com/w320/tm.png"
+  },
+  {
+    "name": "Mozambique",
+    "currency": "MZN",
+    "flag": "https://flagcdn.com/w320/mz.png"
+  },
+  {
+    "name": "Panama",
+    "currency": "PAB",
+    "flag": "https://flagcdn.com/w320/pa.png"
+  },
+  {
+    "name": "Micronesia",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/fm.png"
+  },
+  {
+    "name": "Ireland",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/ie.png"
+  },
+  {
+    "name": "Curaçao",
+    "currency": "ANG",
+    "flag": "https://flagcdn.com/w320/cw.png"
+  },
+  {
+    "name": "French Guiana",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/gf.png"
+  },
+  {
+    "name": "Norway",
+    "currency": "NOK",
+    "flag": "https://flagcdn.com/w320/no.png"
+  },
+  {
+    "name": "Åland Islands",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/ax.png"
+  },
+  {
+    "name": "Central African Republic",
+    "currency": "XAF",
+    "flag": "https://flagcdn.com/w320/cf.png"
+  },
+  {
+    "name": "Burkina Faso",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/bf.png"
+  },
+  {
+    "name": "Eritrea",
+    "currency": "ERN",
+    "flag": "https://flagcdn.com/w320/er.png"
+  },
+  {
+    "name": "Tanzania",
+    "currency": "TZS",
+    "flag": "https://flagcdn.com/w320/tz.png"
+  },
+  {
+    "name": "South Korea",
+    "currency": "KRW",
+    "flag": "https://flagcdn.com/w320/kr.png"
+  },
+  {
+    "name": "Jordan",
+    "currency": "JOD",
+    "flag": "https://flagcdn.com/w320/jo.png"
+  },
+  {
+    "name": "Mauritania",
+    "currency": "MRU",
+    "flag": "https://flagcdn.com/w320/mr.png"
+  },
+  {
+    "name": "Lithuania",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/lt.png"
+  },
+  {
+    "name": "United States Minor Outlying Islands",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/um.png"
+  },
+  {
+    "name": "Slovakia",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/sk.png"
+  },
+  {
+    "name": "Angola",
+    "currency": "AOA",
+    "flag": "https://flagcdn.com/w320/ao.png"
+  },
+  {
+    "name": "Kazakhstan",
+    "currency": "KZT",
+    "flag": "https://flagcdn.com/w320/kz.png"
+  },
+  {
+    "name": "Moldova",
+    "currency": "MDL",
+    "flag": "https://flagcdn.com/w320/md.png"
+  },
+  {
+    "name": "Mali",
+    "currency": "XOF",
+    "flag": "https://flagcdn.com/w320/ml.png"
+  },
+  {
+    "name": "Falkland Islands",
+    "currency": "FKP",
+    "flag": "https://flagcdn.com/w320/fk.png"
+  },
+  {
+    "name": "Armenia",
+    "currency": "AMD",
+    "flag": "https://flagcdn.com/w320/am.png"
+  },
+  {
+    "name": "Samoa",
+    "currency": "WST",
+    "flag": "https://flagcdn.com/w320/ws.png"
+  },
+  {
+    "name": "Jersey",
+    "currency": "GBP",
+    "flag": "https://flagcdn.com/w320/je.png"
+  },
+  {
+    "name": "Japan",
+    "currency": "JPY",
+    "flag": "https://flagcdn.com/w320/jp.png"
+  },
+  {
+    "name": "Bolivia",
+    "currency": "BOB",
+    "flag": "https://flagcdn.com/w320/bo.png"
+  },
+  {
+    "name": "Chile",
+    "currency": "CLP",
+    "flag": "https://flagcdn.com/w320/cl.png"
+  },
+  {
+    "name": "United States",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/us.png"
+  },
+  {
+    "name": "Saint Vincent and the Grenadines",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/vc.png"
+  },
+  {
+    "name": "Bermuda",
+    "currency": "BMD",
+    "flag": "https://flagcdn.com/w320/bm.png"
+  },
+  {
+    "name": "Seychelles",
+    "currency": "SCR",
+    "flag": "https://flagcdn.com/w320/sc.png"
+  },
+  {
+    "name": "British Indian Ocean Territory",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/io.png"
+  },
+  {
+    "name": "Guatemala",
+    "currency": "GTQ",
+    "flag": "https://flagcdn.com/w320/gt.png"
+  },
+  {
+    "name": "Ecuador",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/ec.png"
+  },
+  {
+    "name": "Martinique",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/mq.png"
+  },
+  {
+    "name": "Tajikistan",
+    "currency": "TJS",
+    "flag": "https://flagcdn.com/w320/tj.png"
+  },
+  {
+    "name": "Malta",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/mt.png"
+  },
+  {
+    "name": "Gambia",
+    "currency": "GMD",
+    "flag": "https://flagcdn.com/w320/gm.png"
+  },
+  {
+    "name": "Nigeria",
+    "currency": "NGN",
+    "flag": "https://flagcdn.com/w320/ng.png"
+  },
+  {
+    "name": "Bahamas",
+    "currency": "BSD",
+    "flag": "https://flagcdn.com/w320/bs.png"
+  },
+  {
+    "name": "Kosovo",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/xk.png"
+  },
+  {
+    "name": "Kuwait",
+    "currency": "KWD",
+    "flag": "https://flagcdn.com/w320/kw.png"
+  },
+  {
+    "name": "Maldives",
+    "currency": "MVR",
+    "flag": "https://flagcdn.com/w320/mv.png"
+  },
+  {
+    "name": "South Sudan",
+    "currency": "SSP",
+    "flag": "https://flagcdn.com/w320/ss.png"
+  },
+  {
+    "name": "Iran",
+    "currency": "IRR",
+    "flag": "https://flagcdn.com/w320/ir.png"
+  },
+  {
+    "name": "Albania",
+    "currency": "ALL",
+    "flag": "https://flagcdn.com/w320/al.png"
+  },
+  {
+    "name": "Brazil",
+    "currency": "BRL",
+    "flag": "https://flagcdn.com/w320/br.png"
+  },
+  {
+    "name": "Serbia",
+    "currency": "RSD",
+    "flag": "https://flagcdn.com/w320/rs.png"
+  },
+  {
+    "name": "Belize",
+    "currency": "BZD",
+    "flag": "https://flagcdn.com/w320/bz.png"
+  },
+  {
+    "name": "Myanmar",
+    "currency": "MMK",
+    "flag": "https://flagcdn.com/w320/mm.png"
+  },
+  {
+    "name": "Bhutan",
+    "currency": "BTN",
+    "flag": "https://flagcdn.com/w320/bt.png"
+  },
+  {
+    "name": "Venezuela",
+    "currency": "VES",
+    "flag": "https://flagcdn.com/w320/ve.png"
+  },
+  {
+    "name": "Liberia",
+    "currency": "LRD",
+    "flag": "https://flagcdn.com/w320/lr.png"
+  },
+  {
+    "name": "Jamaica",
+    "currency": "JMD",
+    "flag": "https://flagcdn.com/w320/jm.png"
+  },
+  {
+    "name": "Poland",
+    "currency": "PLN",
+    "flag": "https://flagcdn.com/w320/pl.png"
+  },
+  {
+    "name": "Cayman Islands",
+    "currency": "KYD",
+    "flag": "https://flagcdn.com/w320/ky.png"
+  },
+  {
+    "name": "Brunei",
+    "currency": "BND",
+    "flag": "https://flagcdn.com/w320/bn.png"
+  },
+  {
+    "name": "Comoros",
+    "currency": "KMF",
+    "flag": "https://flagcdn.com/w320/km.png"
+  },
+  {
+    "name": "Guam",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/gu.png"
+  },
+  {
+    "name": "Tonga",
+    "currency": "TOP",
+    "flag": "https://flagcdn.com/w320/to.png"
+  },
+  {
+    "name": "Kiribati",
+    "currency": "AUD",
+    "flag": "https://flagcdn.com/w320/ki.png"
+  },
+  {
+    "name": "Ghana",
+    "currency": "GHS",
+    "flag": "https://flagcdn.com/w320/gh.png"
+  },
+  {
+    "name": "Chad",
+    "currency": "XAF",
+    "flag": "https://flagcdn.com/w320/td.png"
+  },
+  {
+    "name": "Zimbabwe",
+    "currency": "ZWL",
+    "flag": "https://flagcdn.com/w320/zw.png"
+  },
+  {
+    "name": "Saint Martin",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/mf.png"
+  },
+  {
+    "name": "Mongolia",
+    "currency": "MNT",
+    "flag": "https://flagcdn.com/w320/mn.png"
+  },
+  {
+    "name": "Portugal",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/pt.png"
+  },
+  {
+    "name": "American Samoa",
+    "currency": "USD",
+    "flag": "https://flagcdn.com/w320/as.png"
+  },
+  {
+    "name": "Republic of the Congo",
+    "currency": "XAF",
+    "flag": "https://flagcdn.com/w320/cg.png"
+  },
+  {
+    "name": "Belgium",
+    "currency": "EUR",
+    "flag": "https://flagcdn.com/w320/be.png"
+  },
+  {
+    "name": "Israel",
+    "currency": "ILS",
+    "flag": "https://flagcdn.com/w320/il.png"
+  },
+  {
+    "name": "New Zealand",
+    "currency": "NZD",
+    "flag": "https://flagcdn.com/w320/nz.png"
+  },
+  {
+    "name": "Nicaragua",
+    "currency": "NIO",
+    "flag": "https://flagcdn.com/w320/ni.png"
+  },
+  {
+    "name": "Anguilla",
+    "currency": "XCD",
+    "flag": "https://flagcdn.com/w320/ai.png"
+  }
+]

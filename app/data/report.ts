@@ -5,16 +5,16 @@ import type {
 } from "~/types/report";
 
 export const categoryReports: ICategoryReport[] = [
-  { category: "1", amount: 250.75 },
-  { category: "2", amount: 1200.0 },
-  { category: "3", amount: 150.5 },
-  { category: "4", amount: 100.25 },
-  { category: "5", amount: 60.0 },
-  { category: "6", amount: 500.0 },
-  { category: "7", amount: 200.0 },
-  { category: "8", amount: 80.0 },
-  { category: "9", amount: 300.0 },
-  { category: "10", amount: 50.0 },
+  { category: "cat_0002", amount: 1200.0 },
+  { category: "cat_0001", amount: 250.75 },
+  { category: "cat_0003", amount: 150.5 },
+  { category: "cat_0004", amount: 100.25 },
+  { category: "cat_0005", amount: 60.0 },
+  { category: "cat_0006", amount: 500.0 },
+  { category: "cat_0007", amount: 200.0 },
+  { category: "cat_0008", amount: 80.0 },
+  { category: "cat_0009", amount: 300.0 },
+  { category: "cat_0010", amount: 50.0 },
 ];
 
 export const budgetReports: IBudgetReport[] = [
