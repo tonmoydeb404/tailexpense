@@ -3,7 +3,7 @@ import DashboardBudgetsView from "~/views/dashboard/budgets";
 
 export function meta({}: MetaArgs) {
   return [
-    { title: "Budgets" },
+    { title: "Budgets - Tailexpense" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }

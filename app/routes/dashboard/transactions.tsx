@@ -3,7 +3,7 @@ import DashboardTransactionsView from "~/views/dashboard/transactions";
 
 export function meta({}: MetaArgs) {
   return [
-    { title: "Transactions" },
+    { title: "Transactions - Tailexpense" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }

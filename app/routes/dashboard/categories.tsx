@@ -3,7 +3,7 @@ import DashboardCategoriesView from "~/views/dashboard/categories";
 
 export function meta({}: MetaArgs) {
   return [
-    { title: "Categories" },
+    { title: "Categories - Tailexpense" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }

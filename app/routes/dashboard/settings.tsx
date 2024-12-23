@@ -3,7 +3,7 @@ import DashboardSettingsView from "~/views/dashboard/settings";
 
 export function meta({}: MetaArgs) {
   return [
-    { title: "Settings" },
+    { title: "Settings - Tailexpense" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
