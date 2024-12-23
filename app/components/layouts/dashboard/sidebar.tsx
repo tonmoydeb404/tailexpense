@@ -15,18 +15,20 @@ import { cn } from "~/lib/utils";
 import { generalLinks, systemLinks } from "./config";
 
 const DashboardSidebar = () => {
-  const { state, openMobile, openTab } = useSidebar();
+  const { state, openMobile, openTab, setOpenMobile, setOpenTab } =
+    useSidebar();
   const isOpen = state !== "collapsed";
+  const isSidebarOpen = isOpen || openMobile || openTab;
+
+  const closeSheet = () => {
+    setOpenTab(false);
+    setOpenMobile(false);
+  };
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader
-        className={cn(
-          isOpen || openMobile || openTab ? "px-8 pt-10" : "",
-          "pb-10"
-        )}
-      >
-        {(isOpen || openMobile || openTab) && (
+      <SidebarHeader className={cn(isSidebarOpen ? "px-8 pt-10" : "", "pb-10")}>
+        {isSidebarOpen && (
           <img src="/brand/logo-full.svg" className={cn("w-full")} />
         )}
         {!isOpen && !openMobile && !openTab && (
@@ -42,8 +44,9 @@ const DashboardSidebar = () => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    size={isOpen ? "lg" : "default"}
+                    size={isSidebarOpen ? "lg" : "default"}
                     className="text-base px-4"
+                    onClick={closeSheet}
                   >
                     <Link to={item.url}>
                       <item.icon />
@@ -63,8 +66,9 @@ const DashboardSidebar = () => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    size={isOpen ? "lg" : "default"}
+                    size={isSidebarOpen ? "lg" : "default"}
                     className="text-base px-4"
+                    onClick={closeSheet}
                   >
                     <Link to={item.url}>
                       <item.icon />
