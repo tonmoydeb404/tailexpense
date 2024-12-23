@@ -1,5 +1,6 @@
 import { paths } from "~/routes/config";
 import Header from "../common/header";
+import DataManagementSection from "./sections/data-management";
 import PersonalInfoSection from "./sections/personal-info";
 
 type Props = {};
@@ -15,6 +16,7 @@ const DashboardSettingsView = (props: Props) => {
         ]}
       />
       <PersonalInfoSection />
+      <DataManagementSection />
     </>
   );
 };
