@@ -10,14 +10,18 @@ import {
 } from "@tanstack/react-table";
 import * as React from "react";
 
+import { TransactionDeleteModal } from "~/components/modals/transaction";
 import { useTransactions } from "~/db/hooks/transaction";
-import columns from "./columns";
+import useModal from "~/hooks/use-modal";
+import getColumns from "./columns";
 import DesktopView from "./desktop-view";
 import Footer from "./footer";
 import Headers from "./headers";
 
 const DataTableSection = () => {
   const { data } = useTransactions();
+  const deleteModal = useModal<string>();
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -25,9 +29,10 @@ const DataTableSection = () => {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const columns = getColumns({ onDelete: deleteModal.openModal });
 
   const table = useReactTable({
-    data: data?.data || [],
+    data: data || [],
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -52,6 +57,10 @@ const DataTableSection = () => {
         <DesktopView table={table} />
       </div>
       <Footer table={table} />
+      <TransactionDeleteModal
+        data={deleteModal.data}
+        onClose={deleteModal.closeModal}
+      />
     </div>
   );
 };

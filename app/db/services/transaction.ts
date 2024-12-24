@@ -1,19 +1,15 @@
 import { nanoid } from "nanoid";
-import type { ITransaction } from "~/types/transaction";
 import { getDB } from "..";
 import type { TransactionCreate, TransactionUpdate } from "../types";
-import { getPaginatedData } from "../utils";
 
 export const createTransaction = async (item: TransactionCreate) => {
   const db = await getDB();
   return db.add("transactions", { ...item, _id: nanoid() });
 };
 
-export const getTransactions = async (
-  offset: number = 0,
-  limit: number = 10
-) => {
-  return getPaginatedData<ITransaction>("transactions", offset, limit);
+export const getTransactions = async () => {
+  const db = await getDB();
+  return db.getAll("transactions");
 };
 
 export const getTransactionById = async (id: string) => {

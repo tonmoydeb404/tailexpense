@@ -10,6 +10,7 @@ import {
 import type { TransactionCreate, TransactionUpdate } from "../types";
 
 // Fetcher functions
+const get = async () => getTransactions();
 const getById = async (id: string) => getTransactionById(id);
 const create = async (_: any, { arg }: { arg: TransactionCreate }) =>
   createTransaction(arg);
@@ -24,10 +25,8 @@ const remove = async (_: any, { arg }: { arg: string }) =>
   deleteTransaction(arg);
 
 // Hook to fetch all transactions
-export const useTransactions = (offset: number = 0, limit: number = 10) => {
-  return useSWR(["transactions", offset, limit], (values) =>
-    getTransactions(values[1], values[2])
-  );
+export const useTransactions = () => {
+  return useSWR("transactions", get);
 };
 
 // Hook to fetch a single transaction by ID
