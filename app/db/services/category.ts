@@ -30,6 +30,8 @@ export const updateCategory = async (
   const updated = { ...entity, ...item };
 
   await db.put("categories", updated);
+
+  return updated;
 };
 
 export const deleteCategory = async (id: string) => {

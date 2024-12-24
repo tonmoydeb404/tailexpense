@@ -10,13 +10,14 @@ import {
 } from "@tanstack/react-table";
 import * as React from "react";
 
-import { categories } from "~/data/category";
+import { useCategories } from "~/db/hooks";
 import columns from "./columns";
 import DesktopView from "./desktop-view";
 import Footer from "./footer";
 import Headers from "./headers";
 
 const DataTableSection = () => {
+  const { data } = useCategories();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -26,7 +27,7 @@ const DataTableSection = () => {
   const [rowSelection, setRowSelection] = React.useState({});
 
   const table = useReactTable({
-    data: categories,
+    data: data || [],
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
