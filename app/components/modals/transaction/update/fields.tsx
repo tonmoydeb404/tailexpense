@@ -3,6 +3,7 @@ import {
   RHFNumberField,
   RHFTextField,
 } from "~/components/common/rhf";
+import CategoryField from "../common/category-field";
 
 type Props = {};
 
@@ -11,7 +12,7 @@ const Fields = (props: Props) => {
     <div className="mb-10 space-y-3">
       <RHFTextField name="title" label="Title" />
       <RHFNumberField name="amount" label="Amount" />
-      <RHFTextField name="category" label="Category" />
+      <CategoryField />
       <RHFDateField name="date" label="Date" />
     </div>
   );
