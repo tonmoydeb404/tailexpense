@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useMemo } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
@@ -10,55 +10,72 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "~/components/ui/dialog";
 import { Form } from "~/components/ui/form";
-import { useAddTransaction } from "~/db/hooks/transaction";
+import { useEditTransaction } from "~/db/hooks/transaction";
+import type { ITransaction } from "~/types/transaction";
 import Fields from "./fields";
 import { Schema, type SchemaType } from "./schema";
 
-const defaultValues: SchemaType = {
-  amount: undefined as unknown as number,
-  category: "",
-  date: new Date(),
-  title: "",
-  type: "EXPENSE",
+type Props = {
+  data: ITransaction | null;
+  onClose: () => void;
 };
 
-export const TransactionCreateModal = () => {
-  const [modal, setModal] = useState(false);
-  const { trigger, isMutating } = useAddTransaction();
+export const TransactionUpdateModal = (props: Props) => {
+  const { data, onClose } = props;
+  const { trigger, isMutating } = useEditTransaction();
+
+  const defaultValues: SchemaType = useMemo(
+    () => ({
+      amount: data?.amount
+        ? data.amount / 100
+        : (undefined as unknown as number),
+      category: data?.category || "",
+      date: data?.date ? new Date(data.date) : new Date(),
+      title: data?.title || "",
+      type: data?.type || "EXPENSE",
+    }),
+    [data]
+  );
+
   const formOptions = useForm({ defaultValues, resolver: zodResolver(Schema) });
   const { handleSubmit, reset } = formOptions;
 
   const onSubmit: SubmitHandler<SchemaType> = async (values) => {
+    if (!data) return;
+
     await trigger(
       {
-        ...values,
-        date: values.date.toISOString(),
-        amount: values.amount * 100,
+        id: data._id,
+        updates: {
+          ...values,
+          date: values.date.toISOString(),
+          amount: values.amount * 100,
+        },
       },
       {
         onSuccess: () => {
-          toast.success("Transaction created!");
-          reset(defaultValues);
-          setModal(false);
+          toast.success("Transaction updated!");
+          reset();
+          onClose();
         },
         onError: () => {
-          toast.error("Transaction creation failed");
+          toast.error("Transaction update failed");
         },
       }
     );
   };
 
+  useEffect(() => {
+    reset(defaultValues);
+  }, [defaultValues]);
+
   return (
-    <Dialog open={modal} onOpenChange={setModal}>
-      <DialogTrigger asChild>
-        <Button variant="outline">Add New</Button>
-      </DialogTrigger>
+    <Dialog open={!!data} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>New Transaction</DialogTitle>
+          <DialogTitle>Update Transaction</DialogTitle>
           <DialogDescription>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </DialogDescription>
@@ -68,7 +85,7 @@ export const TransactionCreateModal = () => {
             <Fields />
             <DialogFooter>
               <Button type="submit" disabled={isMutating}>
-                Create
+                Update
               </Button>
             </DialogFooter>
           </form>

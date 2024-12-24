@@ -16,10 +16,11 @@ import { formatCurrency } from "~/utils/currency";
 
 type Props = {
   onDelete: (id: string) => void;
+  onUpdate: (transaction: ITransaction) => void;
 };
 
 const getColumns = (props: Props): ColumnDef<ITransaction>[] => {
-  const { onDelete } = props;
+  const { onDelete, onUpdate } = props;
 
   return [
     {
@@ -133,7 +134,9 @@ const getColumns = (props: Props): ColumnDef<ITransaction>[] => {
                 Copy transaction ID
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Update Details</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => onUpdate(transaction)}>
+                Update Details
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onDelete(transaction._id)}>
                 Delete
               </DropdownMenuItem>
