@@ -10,14 +10,23 @@ import {
 } from "@tanstack/react-table";
 import * as React from "react";
 
+import {
+  CategoryDeleteModal,
+  CategoryUpdateModal,
+} from "~/components/modals/category";
 import { useCategories } from "~/db/hooks";
-import columns from "./columns";
+import useModal from "~/hooks/use-modal";
+import type { ICategory } from "~/types/category";
+import getColumns from "./columns";
 import DesktopView from "./desktop-view";
 import Footer from "./footer";
 import Headers from "./headers";
 
 const DataTableSection = () => {
   const { data } = useCategories();
+  const updateModal = useModal<ICategory>();
+  const deleteModal = useModal<string>();
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -25,6 +34,10 @@ const DataTableSection = () => {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const columns = getColumns({
+    onDelete: deleteModal.openModal,
+    onUpdate: updateModal.openModal,
+  });
 
   const table = useReactTable({
     data: data || [],
@@ -52,6 +65,15 @@ const DataTableSection = () => {
         <DesktopView table={table} />
       </div>
       <Footer table={table} />
+
+      <CategoryUpdateModal
+        data={updateModal.data}
+        onClose={updateModal.closeModal}
+      />
+      <CategoryDeleteModal
+        data={deleteModal.data}
+        onClose={deleteModal.closeModal}
+      />
     </div>
   );
 };
