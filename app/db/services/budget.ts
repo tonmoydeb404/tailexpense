@@ -1,10 +1,10 @@
 import { nanoid } from "nanoid";
-import type { IBudget } from "~/types/budget";
 import { getDB } from "..";
+import type { BudgetCreate, BudgetUpdate } from "../types";
 
-export const createBudget = async (item: Omit<IBudget, "_id">) => {
+export const createBudget = async (data: BudgetCreate) => {
   const db = await getDB();
-  return db.add("budgets", { ...item, _id: nanoid() });
+  return db.add("budgets", { ...data, _id: nanoid() });
 };
 
 export const getBudgets = async () => {
@@ -17,19 +17,18 @@ export const getBudgetById = async (id: string) => {
   return db.get("budgets", id);
 };
 
-export const updateBudget = async (
-  id: string,
-  item: Partial<Omit<IBudget, "_id">>
-) => {
+export const updateBudget = async (id: string, updates: BudgetUpdate) => {
   const db = await getDB();
 
   const entity = await db.get("budgets", id);
 
   if (!entity) return null;
 
-  const updated = { ...entity, ...item };
+  const updated = { ...entity, ...updates };
 
   await db.put("budgets", updated);
+
+  return updated;
 };
 
 export const deleteBudget = async (id: string) => {

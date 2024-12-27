@@ -1,4 +1,4 @@
-import { Button } from "~/components/ui/button";
+import { BudgetCreateModal } from "~/components/modals/budget";
 import { Input } from "~/components/ui/input";
 import ColumnFilter from "./column-filter";
 import type { TableType } from "./types";
@@ -24,7 +24,7 @@ const Headers = (props: Props) => {
         <ColumnFilter table={table} />
       </div>
       <div className="flex items-center">
-        <Button>Create New</Button>
+        <BudgetCreateModal />
       </div>
     </div>
   );
