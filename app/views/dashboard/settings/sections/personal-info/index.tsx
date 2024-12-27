@@ -1,3 +1,7 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useMemo } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -6,39 +10,60 @@ import {
   CardFooter,
   CardHeader,
 } from "~/components/ui/card";
-import { Input } from "~/components/ui/input";
-import { Label } from "~/components/ui/label";
-import CountryField from "./country-field";
+import { Form } from "~/components/ui/form";
+import { useAppContext } from "~/contexts/app-context";
+import Fields from "./fields";
+import { Schema, type SchemaType } from "./schema";
 
 type Props = {};
 
 const PersonalInfoSection = (props: Props) => {
+  const { currency, name, saveData } = useAppContext();
+
+  console.log({ currency, name });
+
+  const defaultValues = useMemo<SchemaType>(
+    () => ({
+      name: name || "",
+      currency: currency || "",
+    }),
+    [name, currency]
+  );
+  const formOptions = useForm({ defaultValues, resolver: zodResolver(Schema) });
+
+  const onSubmit: SubmitHandler<SchemaType> = (values) => {
+    saveData(values);
+    toast.success("Personal info updated");
+  };
+
+  const onReset = () => {
+    formOptions.reset(defaultValues);
+  };
+
+  useEffect(() => {
+    formOptions.reset(defaultValues);
+  }, [defaultValues]);
   return (
     <Card className="max-w-xl w-full mb-10 shadow-none">
       <CardHeader>
         {/* <CardTitle>Personal Info</CardTitle> */}
         <CardDescription>Personal Info</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-2 mb-4 sm:mb-3">
-          <Label className="inline-block font-normal min-w-[110px]">
-            Your Name:{" "}
-          </Label>
-          <Input placeholder="Jhon Doe" className="flex-1" />
-        </div>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-2 mb-4 sm:mb-5">
-          <Label className="inline-block font-normal min-w-[110px]">
-            Your Country:{" "}
-          </Label>
-          <CountryField />
-        </div>
-      </CardContent>
-      <CardFooter className="gap-2 flex-wrap">
-        <Button size={"sm"}>Update Details</Button>
-        <Button size={"sm"} variant={"outline"}>
-          Cancel Changes
-        </Button>
-      </CardFooter>
+      <Form {...formOptions}>
+        <form onSubmit={formOptions.handleSubmit(onSubmit)} onReset={onReset}>
+          <CardContent>
+            <Fields />
+          </CardContent>
+          <CardFooter className="gap-2 flex-wrap">
+            <Button size={"sm"} type="submit">
+              Update Details
+            </Button>
+            <Button size={"sm"} variant={"outline"} type="reset">
+              Cancel Changes
+            </Button>
+          </CardFooter>
+        </form>
+      </Form>
     </Card>
   );
 };

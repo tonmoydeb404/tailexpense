@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import { Toaster } from "./components/ui/sonner";
+import { AppContextProvider } from "./contexts/app-context";
 import stylesheet from "./styles/app.css?url";
 
 export const links: Route.LinksFunction = () => [
@@ -28,7 +29,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="min-h-screen">
-        {children}
+        <AppContextProvider>{children}</AppContextProvider>
         <Toaster />
         <ScrollRestoration />
         <Scripts />
