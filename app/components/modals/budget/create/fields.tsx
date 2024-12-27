@@ -5,8 +5,8 @@ type Props = {};
 const Fields = (props: Props) => {
   return (
     <div className="mb-10 space-y-3">
+      <RHFDateField name="month" label="Month" />
       <RHFNumberField name="amount" label="Amount" />
-      <RHFDateField name="date" label="Date" />
     </div>
   );
 };

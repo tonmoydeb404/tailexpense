@@ -10,13 +10,23 @@ import {
 } from "@tanstack/react-table";
 import * as React from "react";
 
-import { budgets } from "~/data/budget";
-import columns from "./columns";
+import {
+  BudgetDeleteModal,
+  BudgetUpdateModal,
+} from "~/components/modals/budget";
+import { useBudgets } from "~/db/hooks";
+import useModal from "~/hooks/use-modal";
+import type { IBudget } from "~/types/budget";
+import getColumns from "./columns";
 import DesktopView from "./desktop-view";
 import Footer from "./footer";
 import Headers from "./headers";
 
 const DataTableSection = () => {
+  const { data } = useBudgets();
+  const deleteModal = useModal<string>();
+  const updateModal = useModal<IBudget>();
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -24,9 +34,13 @@ const DataTableSection = () => {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const columns = getColumns({
+    onDelete: deleteModal.openModal,
+    onUpdate: updateModal.openModal,
+  });
 
   const table = useReactTable({
-    data: budgets,
+    data: data || [],
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -51,6 +65,15 @@ const DataTableSection = () => {
         <DesktopView table={table} />
       </div>
       <Footer table={table} />
+
+      <BudgetUpdateModal
+        data={updateModal.data}
+        onClose={updateModal.closeModal}
+      />
+      <BudgetDeleteModal
+        data={deleteModal.data}
+        onClose={deleteModal.closeModal}
+      />
     </div>
   );
 };

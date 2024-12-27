@@ -12,24 +12,24 @@ import {
   DialogTitle,
 } from "~/components/ui/dialog";
 import { Form } from "~/components/ui/form";
-import { useEditCategory } from "~/db/hooks";
-import type { ICategory } from "~/types/category";
+import { useEditBudget } from "~/db/hooks";
+import type { IBudget } from "~/types/budget";
 import Fields from "./fields";
 import { Schema, type SchemaType } from "./schema";
 
 type Props = {
-  data: ICategory | null;
+  data: IBudget | null;
   onClose: () => void;
 };
 
-export const CategoryUpdateModal = (props: Props) => {
+export const BudgetUpdateModal = (props: Props) => {
   const { data, onClose } = props;
-  const { trigger, isMutating } = useEditCategory();
+  const { trigger, isMutating } = useEditBudget();
 
   const defaultValues: SchemaType = useMemo(
     () => ({
-      name: data?.name || "",
-      color: data?.color || "",
+      amount: data?.amount ? data.amount / 100 : ("" as unknown as number),
+      month: data?.month,
     }),
     [data]
   );
@@ -43,18 +43,16 @@ export const CategoryUpdateModal = (props: Props) => {
     await trigger(
       {
         id: data._id,
-        updates: {
-          ...values,
-        },
+        updates: { amount: values.amount * 100 },
       },
       {
         onSuccess: () => {
-          toast.success("Category updated!");
+          toast.success("Budget updated!");
           reset();
           onClose();
         },
         onError: () => {
-          toast.error("Category update failed");
+          toast.error("Budget update failed");
         },
       }
     );
@@ -68,7 +66,7 @@ export const CategoryUpdateModal = (props: Props) => {
     <Dialog open={!!data} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Update Category</DialogTitle>
+          <DialogTitle>Update Budget</DialogTitle>
           <DialogDescription>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </DialogDescription>

@@ -9,26 +9,26 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
-import { useDeleteCategory } from "~/db/hooks";
+import { useDeleteBudget } from "~/db/hooks";
 
 type Props = {
   data: string | null;
   onClose: () => void;
 };
 
-export const CategoryDeleteModal = (props: Props) => {
+export const BudgetDeleteModal = (props: Props) => {
   const { data, onClose } = props;
-  const { trigger, isMutating } = useDeleteCategory();
+  const { trigger, isMutating } = useDeleteBudget();
 
   const onConfirm = () => {
     if (!data) return;
     trigger(data, {
       onSuccess: () => {
-        toast.success("Category deleted successfully");
+        toast.success("Budget deleted successfully");
         onClose();
       },
       onError: () => {
-        toast.error("Failed to delete category");
+        toast.error("Failed to delete budget");
       },
     });
   };
@@ -40,7 +40,7 @@ export const CategoryDeleteModal = (props: Props) => {
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
-            selected category.
+            selected budget.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

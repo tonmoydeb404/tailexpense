@@ -38,7 +38,7 @@ export const RHFDateField = (props: Props) => {
         <FormItem className="flex flex-col">
           {label && <FormLabel>{label}</FormLabel>}
           <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger asChild disabled={!!others.disabled}>
               <FormControl>
                 <Button
                   variant={"outline"}

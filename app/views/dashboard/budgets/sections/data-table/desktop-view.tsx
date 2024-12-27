@@ -9,7 +9,6 @@ import {
   TableRow,
 } from "~/components/ui/table";
 
-import columns from "./columns";
 import type { TableType } from "./types";
 
 type Props = { table: TableType };
@@ -52,7 +51,10 @@ const DesktopView = (props: Props) => {
           ))
         ) : (
           <TableRow>
-            <TableCell colSpan={columns.length} className="h-24 text-center">
+            <TableCell
+              colSpan={table.getAllColumns().length}
+              className="h-24 text-center"
+            >
               No results.
             </TableCell>
           </TableRow>
