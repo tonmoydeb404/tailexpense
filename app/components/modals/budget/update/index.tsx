@@ -29,7 +29,9 @@ export const BudgetUpdateModal = (props: Props) => {
   const defaultValues: SchemaType = useMemo(
     () => ({
       amount: data?.amount ? data.amount / 100 : ("" as unknown as number),
-      month: data?.month,
+      month: data?.month
+        ? new Date(new Date(data.month).setHours(0, 0, 0, 0))
+        : new Date(),
     }),
     [data]
   );

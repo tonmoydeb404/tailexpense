@@ -18,7 +18,7 @@ import Fields from "./fields";
 import { Schema, type SchemaType } from "./schema";
 
 const defaultValues: SchemaType = {
-  month: new Date(),
+  month: new Date(new Date().setHours(0, 0, 0, 0)),
   amount: "" as unknown as number,
 };
 
