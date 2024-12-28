@@ -25,7 +25,7 @@ const Breadcrumbs = (props: Props) => {
       <BreadcrumbList>
         {items.map((item, index, array) => (
           <Fragment key={index}>
-            <BreadcrumbItem className="hidden md:block">
+            <BreadcrumbItem>
               {item.href ? (
                 <BreadcrumbLink asChild>
                   <Link to={item.href}>{item.title}</Link>
