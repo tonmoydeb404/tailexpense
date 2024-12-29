@@ -25,7 +25,7 @@ const MobileView = (props: Props) => {
           return (
             <Card key={row.id} className="p-4 flex gap-3 items-center">
               <div className="flex flex-col">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-base font-medium mb-1">
                   {data.title || "Untitled"}
                 </CardTitle>
                 <Badge
@@ -37,12 +37,13 @@ const MobileView = (props: Props) => {
                         }
                       : undefined
                   }
+                  className="w-fit"
                 >
                   {category?.name || "Uncategorized"}
                 </Badge>
               </div>
               <div className="flex flex-col items-end ml-auto">
-                <span className="text-sm font-semibold">
+                <span className="text-lg font-semibold">
                   {formatCurrency(data.amount / 100, currency)}
                 </span>
                 <span className="text-xs mt-1">
