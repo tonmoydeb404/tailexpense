@@ -14,6 +14,7 @@ import {
   BudgetDeleteModal,
   BudgetUpdateModal,
 } from "~/components/modals/budget";
+import { useAppContext } from "~/contexts/app-context";
 import { useBudgets } from "~/db/hooks";
 import useModal from "~/hooks/use-modal";
 import type { IBudget } from "~/types/budget";
@@ -24,6 +25,7 @@ import Headers from "./headers";
 import MobileView from "./mobile-view";
 
 const DataTableSection = () => {
+  const { currency } = useAppContext();
   const { data } = useBudgets();
   const deleteModal = useModal<string>();
   const updateModal = useModal<IBudget>();
@@ -38,6 +40,7 @@ const DataTableSection = () => {
   const columns = getColumns({
     onDelete: deleteModal.openModal,
     onUpdate: updateModal.openModal,
+    currency,
   });
 
   const table = useReactTable({

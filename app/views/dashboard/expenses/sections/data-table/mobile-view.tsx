@@ -2,6 +2,7 @@ import { flexRender } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { Badge } from "~/components/ui/badge";
 import { Card, CardTitle } from "~/components/ui/card";
+import { useAppContext } from "~/contexts/app-context";
 import { formatCurrency } from "~/utils/currency";
 import type { TableType } from "./types";
 
@@ -9,6 +10,7 @@ type Props = { table: TableType };
 
 const MobileView = (props: Props) => {
   const { table } = props;
+  const { currency } = useAppContext();
 
   return (
     <div className="space-y-4 md:hidden">
@@ -30,7 +32,7 @@ const MobileView = (props: Props) => {
               </div>
               <div className="flex flex-col items-end ml-auto">
                 <span className="text-sm font-semibold">
-                  {formatCurrency(data.amount / 100, "BDT")}
+                  {formatCurrency(data.amount / 100, currency)}
                 </span>
                 <span className="text-xs mt-1">
                   {format(data.date, "yyyy-mm-dd")}

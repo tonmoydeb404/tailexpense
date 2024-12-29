@@ -1,5 +1,6 @@
 import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardHeader } from "~/components/ui/card";
+import { useAppContext } from "~/contexts/app-context";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 
 const StatCard = (props: Props) => {
   const { amount, title, increment } = props;
+  const { currency } = useAppContext();
   return (
     <Card>
       <CardHeader className="p-4">
@@ -17,7 +19,7 @@ const StatCard = (props: Props) => {
           {title}
         </span>
         <h1 className="text-2xl font-bold">
-          {formatCurrency(amount / 100, "BDT")}
+          {formatCurrency(amount / 100, currency)}
         </h1>
       </CardHeader>
       <CardContent className="p-4 pt-0">

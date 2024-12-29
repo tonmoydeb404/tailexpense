@@ -22,6 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import { useAppContext } from "~/contexts/app-context";
 import { useExpenseStats } from "~/db/hooks";
 import { formatCurrency } from "~/utils/currency";
 
@@ -35,6 +36,7 @@ const chartConfig = {
 type TimeRange = "90d" | "30d" | "7d";
 
 const ExpenseStats = () => {
+  const { currency } = useAppContext();
   const [timeRange, setTimeRange] = useState<TimeRange>("90d");
   const start = useMemo(() => {
     switch (timeRange) {
@@ -66,7 +68,7 @@ const ExpenseStats = () => {
             {timeRange === "7d" && "7 days"}{" "}
             {` ${formatCurrency(
               data?.totalAmount ? data.totalAmount / 100 : 0,
-              "BDT"
+              currency
             )}`}
           </CardDescription>
         </div>

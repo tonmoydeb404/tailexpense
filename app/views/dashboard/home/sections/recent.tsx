@@ -1,6 +1,7 @@
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { TrendingDown } from "lucide-react";
 import moment from "moment";
 import { Card, CardContent } from "~/components/ui/card";
+import { useAppContext } from "~/contexts/app-context";
 import { recentTransaction } from "~/data/transaction";
 import { cn } from "~/lib/utils";
 import type { IExpense } from "~/types/expense";
@@ -32,19 +33,13 @@ type ItemProps = {
 };
 const Item = (props: ItemProps) => {
   const { data } = props;
+  const { currency } = useAppContext();
 
   return (
     <Card>
       <CardContent className="py-3 px-4 flex flex-row">
-        <div
-          className={cn(
-            "self-center border p-1.5 rounded mr-4",
-            data.type === "EXPENSE" ? "text-red-500" : "",
-            data.type === "INCOME" ? "text-green-500" : ""
-          )}
-        >
-          {data.type === "EXPENSE" && <TrendingDown />}
-          {data.type === "INCOME" && <TrendingUp />}
+        <div className={cn("self-center border p-1.5 rounded mr-4")}>
+          <TrendingDown />
         </div>
 
         <div className="flex-1">
@@ -55,7 +50,7 @@ const Item = (props: ItemProps) => {
         </div>
 
         <h3 className="text-lg font-bold">
-          {formatCurrency(data.amount / 100, "BDT")}
+          {formatCurrency(data.amount / 100, currency)}
         </h3>
       </CardContent>
     </Card>

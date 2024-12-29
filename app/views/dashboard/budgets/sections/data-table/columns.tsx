@@ -23,10 +23,11 @@ import { formatCurrency } from "~/utils/currency";
 type Props = {
   onDelete: (id: string) => void;
   onUpdate: (data: IBudget) => void;
+  currency: string | null;
 };
 
 const getColumns = (props: Props): ColumnDef<IBudget>[] => {
-  const { onDelete, onUpdate } = props;
+  const { onDelete, onUpdate, currency } = props;
   return [
     {
       id: "select",
@@ -100,7 +101,7 @@ const getColumns = (props: Props): ColumnDef<IBudget>[] => {
       },
       cell: ({ row }) => {
         const amount = parseFloat(row.getValue("amount"));
-        return <div>{formatCurrency(amount / 100, "BDT")}</div>;
+        return <div>{formatCurrency(amount / 100, currency)}</div>;
       },
     },
     {

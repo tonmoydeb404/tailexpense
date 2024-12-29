@@ -16,7 +16,7 @@ import { formatCurrency } from "~/utils/currency";
 type Props = {};
 
 const MonthlyUsage = (props: Props) => {
-  const { date } = useAppContext();
+  const { date, currency } = useAppContext();
   const { data } = useCategoryStats(date);
 
   const chartConfig = useMemo(() => {
@@ -85,7 +85,7 @@ const MonthlyUsage = (props: Props) => {
                             y={viewBox.cy}
                             className="fill-foreground text-2xl 2xl:text-3xl font-bold"
                           >
-                            {formatCurrency(total, "BDT", {
+                            {formatCurrency(total, currency, {
                               minimumFractionDigits: 0,
                             })}
                           </tspan>

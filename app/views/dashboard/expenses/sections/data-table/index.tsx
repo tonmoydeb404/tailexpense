@@ -14,6 +14,7 @@ import {
   ExpenseDeleteModal,
   ExpenseUpdateModal,
 } from "~/components/modals/expense";
+import { useAppContext } from "~/contexts/app-context";
 import { useExpenses } from "~/db/hooks/expense";
 import useModal from "~/hooks/use-modal";
 import type { IExpense } from "~/types/expense";
@@ -24,6 +25,7 @@ import Headers from "./headers";
 import MobileView from "./mobile-view";
 
 const DataTableSection = () => {
+  const { currency } = useAppContext();
   const { data } = useExpenses();
   const deleteModal = useModal<string>();
   const updateModal = useModal<IExpense>();
@@ -38,6 +40,7 @@ const DataTableSection = () => {
   const columns = getColumns({
     onDelete: deleteModal.openModal,
     onUpdate: updateModal.openModal,
+    currency,
   });
 
   const table = useReactTable({
