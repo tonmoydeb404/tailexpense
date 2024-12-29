@@ -1,4 +1,8 @@
-export function formatCurrency(value: number, currency: string) {
+export function formatCurrency(
+  value: number,
+  currency: string,
+  options?: Intl.NumberFormatOptions
+) {
   if (typeof value !== "number") {
     value = 0;
   }
@@ -11,5 +15,6 @@ export function formatCurrency(value: number, currency: string) {
     style: "currency",
     currency,
     currencyDisplay: "narrowSymbol",
+    ...options,
   }).format(value);
 }

@@ -7,7 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
-import { budgetReports } from "~/data/report";
+import { useYearlyStats } from "~/db/hooks";
 
 const chartConfig: ChartConfig = {
   budget: {
@@ -21,6 +21,16 @@ const chartConfig: ChartConfig = {
 };
 
 const BudgetUsage = () => {
+  const { data } = useYearlyStats(new Date().getFullYear());
+
+  const report = data?.monthlyBreakdown
+    ? data.monthlyBreakdown.map((item) => ({
+        month: item.month,
+        budget: item.budgets / 100,
+        expense: item.expenses / 100,
+      }))
+    : [];
+
   return (
     <div>
       <h3 className="text-sm uppercase mb-3 font-medium text-muted-foreground">
@@ -29,7 +39,7 @@ const BudgetUsage = () => {
       <Card>
         <CardContent className="py-5 px-2 sm:px-4">
           <ChartContainer config={chartConfig} className="max-h-[400px] w-full">
-            <BarChart accessibilityLayer data={budgetReports}>
+            <BarChart accessibilityLayer data={report}>
               <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="month"

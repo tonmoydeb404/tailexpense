@@ -1,4 +1,5 @@
-import * as React from "react";
+import { subDays } from "date-fns";
+import { useMemo, useState } from "react";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -21,34 +22,38 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { expenseReports } from "~/data/report";
+import { useExpenseStats } from "~/db/hooks";
+import { formatCurrency } from "~/utils/currency";
 
 const chartConfig = {
   amount: {
-    label: "Transaction",
-    color: "hsl(var(--chart-1))",
+    label: "Expense ",
+    color: "hsl(var(--chart-5))",
   },
 } satisfies ChartConfig;
 
 type TimeRange = "90d" | "30d" | "7d";
 
 const ExpenseStats = () => {
-  const [timeRange, setTimeRange] = React.useState<TimeRange>("90d");
-
-  const filteredData = expenseReports.filter((item) => {
-    const date = new Date(item.date);
-    const referenceDate = new Date("2024-06-30");
-    let daysToSubtract = 90;
-
-    if (timeRange === "30d") {
-      daysToSubtract = 30;
-    } else if (timeRange === "7d") {
-      daysToSubtract = 7;
+  const [timeRange, setTimeRange] = useState<TimeRange>("90d");
+  const start = useMemo(() => {
+    switch (timeRange) {
+      case "30d":
+        return subDays(new Date(), 30);
+      case "90d":
+        return subDays(new Date(), 90);
+      case "7d":
+        return subDays(new Date(), 7);
     }
-    const startDate = new Date(referenceDate);
-    startDate.setDate(startDate.getDate() - daysToSubtract);
-    return date >= startDate;
-  });
+  }, [timeRange]);
+
+  const { data } = useExpenseStats(start.toISOString());
+
+  const report = data?.expenses?.map((item) => ({
+    _id: item._id,
+    amount: item.amount / 100,
+    date: item.date,
+  }));
 
   return (
     <Card>
@@ -56,10 +61,13 @@ const ExpenseStats = () => {
         <div className="grid flex-1 gap-1 text-left">
           <CardTitle>Expense Overview</CardTitle>
           <CardDescription>
-            Showing total visitors for the last{" "}
-            {timeRange === "90d" && "3 months"}
+            Total expense for the last {timeRange === "90d" && "3 months"}
             {timeRange === "30d" && "30 days"}
-            {timeRange === "7d" && "7 days"}
+            {timeRange === "7d" && "7 days"}{" "}
+            {` ${formatCurrency(
+              data?.totalAmount ? data.totalAmount / 100 : 0,
+              "BDT"
+            )}`}
           </CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange as any}>
@@ -87,7 +95,7 @@ const ExpenseStats = () => {
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"
         >
-          <AreaChart data={filteredData}>
+          <AreaChart data={report}>
             <defs>
               <linearGradient id="fillAmount" x1="0" y1="0" x2="0" y2="1">
                 <stop

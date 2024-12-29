@@ -1,35 +1,48 @@
+import { useMemo } from "react";
 import { Label, Pie, PieChart } from "recharts";
 
-import { Card, CardContent, CardFooter } from "~/components/ui/card";
+import { Card, CardContent } from "~/components/ui/card";
 import {
   type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
-import { categories } from "~/data/category";
-import { categoryReports } from "~/data/report";
+import { useCategoryStats } from "~/db/hooks";
 import useResponsiveValue from "~/hooks/use-responsive-value";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {};
 
 const MonthlyUsage = (props: Props) => {
-  const chartConfig = categories.reduce((prev, curr) => {
-    prev[curr._id] = {
-      label: curr.name,
-      color: curr.color,
-    };
+  const { data } = useCategoryStats("2024-12-29T07:13:24.886Z");
 
-    return prev;
-  }, {} as ChartConfig);
+  const chartConfig = useMemo(() => {
+    if (!Array.isArray(data) || data.length <= 0) return {};
 
-  const chartData = categoryReports.map((item) => ({
-    ...item,
-    fill: `var(--color-${item.category})`,
-  }));
+    return data.reduce((prev, curr) => {
+      prev[curr._id] = {
+        label: curr.name,
+        color: curr.color,
+      };
 
-  const total = chartData.reduce((acc, curr) => acc + curr.amount, 0);
+      return prev;
+    }, {} as ChartConfig);
+  }, [data]);
+
+  const chartData = useMemo(() => {
+    if (!Array.isArray(data) || data.length <= 0) return [];
+
+    return data.map((item) => ({
+      ...item,
+      total: item.total / 100,
+      fill: `var(--color-${item._id})`,
+    }));
+  }, [data]);
+
+  const total = useMemo(() => {
+    return chartData.reduce((acc, curr) => acc + curr.total, 0);
+  }, [chartData]);
   const innerRadius = useResponsiveValue({ "2xl": 70, sm: 60 });
 
   return (
@@ -50,8 +63,8 @@ const MonthlyUsage = (props: Props) => {
               />
               <Pie
                 data={chartData}
-                dataKey="amount"
-                nameKey="category"
+                dataKey="total"
+                nameKey="name"
                 innerRadius={innerRadius}
                 strokeWidth={5}
               >
@@ -70,7 +83,9 @@ const MonthlyUsage = (props: Props) => {
                             y={viewBox.cy}
                             className="fill-foreground text-2xl 2xl:text-3xl font-bold"
                           >
-                            {formatCurrency(total, "BDT")}
+                            {formatCurrency(total, "BDT", {
+                              minimumFractionDigits: 0,
+                            })}
                           </tspan>
                           <tspan
                             x={viewBox.cx}
@@ -88,11 +103,6 @@ const MonthlyUsage = (props: Props) => {
             </PieChart>
           </ChartContainer>
         </CardContent>
-        <CardFooter className="flex-col gap-2 text-sm text-center">
-          <div className="flex items-center gap-2">
-            Expense up by 5.2% this month
-          </div>
-        </CardFooter>
       </Card>
     </div>
   );

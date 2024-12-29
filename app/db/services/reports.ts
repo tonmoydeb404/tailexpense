@@ -1,6 +1,7 @@
 import {
   endOfMonth,
   endOfYear,
+  format,
   formatISO,
   parseISO,
   startOfMonth,
@@ -12,19 +13,20 @@ import { getDB } from "../index";
 export const getStats = async (month: string) => {
   const db = await getDB();
 
-  const currentDate = parseISO(month);
-  const prevDate = subMonths(currentDate, 1);
+  const currentMonth = startOfMonth(month);
+  const prevMonth = subMonths(currentMonth, 1);
 
   // Budgets ----------------------------------------------------------------------
   const budget = await db.getFromIndex(
     "budgets",
     "monthIndex",
-    formatISO(currentDate)
+    currentMonth.toISOString()
   );
+
   const prevBudget = await db.getFromIndex(
     "budgets",
     "monthIndex",
-    formatISO(prevDate)
+    formatISO(prevMonth)
   );
 
   const budgetIncrease =
@@ -37,8 +39,8 @@ export const getStats = async (month: string) => {
     "expenses",
     "dateIndex",
     IDBKeyRange.bound(
-      formatISO(startOfMonth(currentDate)),
-      formatISO(endOfMonth(currentDate)),
+      formatISO(startOfMonth(currentMonth)),
+      formatISO(endOfMonth(currentMonth)),
       false,
       false
     )
@@ -47,8 +49,8 @@ export const getStats = async (month: string) => {
     "expenses",
     "dateIndex",
     IDBKeyRange.bound(
-      formatISO(startOfMonth(prevDate)),
-      formatISO(endOfMonth(prevDate)),
+      formatISO(startOfMonth(prevMonth)),
+      formatISO(endOfMonth(prevMonth)),
       false,
       false
     )
@@ -85,7 +87,7 @@ export const getStats = async (month: string) => {
   };
 };
 
-export const getCategoryUsage = async (month: string) => {
+export const getCategoryStats = async (month: string) => {
   const db = await getDB();
   const currentDate = parseISO(month);
 
@@ -119,7 +121,7 @@ export const getCategoryUsage = async (month: string) => {
   return usage;
 };
 
-export const getYearlyStats = async (year: string) => {
+export const getYearlyStats = async (year: number) => {
   const db = await getDB();
 
   const yearStart = startOfYear(new Date(`${year}-01-01`));
@@ -138,45 +140,46 @@ export const getYearlyStats = async (year: string) => {
   );
 
   // Initialize yearly totals and breakdowns
-  const monthlyData: Record<string, { budget: number; expenses: number }> = {};
+  const monthlyData: Record<string, { budgets: number; expenses: number }> = {};
   let totalBudget = 0;
   let totalExpenses = 0;
 
   budgets.forEach((budget) => {
-    const month = budget.month.slice(0, 7); // Extract "YYYY-MM" from ISO string
-    monthlyData[month] = monthlyData[month] || { budget: 0, expenses: 0 };
-    monthlyData[month].budget += budget.amount;
+    const date = startOfMonth(budget.month).toISOString();
+    monthlyData[date] = monthlyData[date] || { budgets: 0, expenses: 0 };
+    monthlyData[date].budgets += budget.amount;
     totalBudget += budget.amount;
   });
 
   expenses.forEach((expense) => {
-    const expenseDate = new Date(expense.date);
-    const month = formatISO(startOfMonth(expenseDate)).slice(0, 7); // Extract "YYYY-MM"
-    monthlyData[month] = monthlyData[month] || { budget: 0, expenses: 0 };
-    monthlyData[month].expenses += expense.amount;
+    const date = startOfMonth(expense.date).toISOString();
+
+    monthlyData[date] = monthlyData[date] || { budgets: 0, expenses: 0 };
+    monthlyData[date].expenses += expense.amount;
     totalExpenses += expense.amount;
   });
 
   return {
     totalBudget,
     totalExpenses,
-    monthlyBreakdown: Object.keys(monthlyData).map((month) => ({
-      month,
-      budget: monthlyData[month].budget,
-      expenses: monthlyData[month].expenses,
+    monthlyBreakdown: Object.keys(monthlyData).map((date) => ({
+      month: format(date, "MMMM"),
+      date,
+      budgets: monthlyData[date].budgets,
+      expenses: monthlyData[date].expenses,
     })),
   };
 };
 
-export const getExpensesFromDate = async (startDate: Date) => {
+export const getExpenseStats = async (start: string) => {
   const db = await getDB();
 
-  const formattedStartDate = formatISO(startDate);
+  const startDate = parseISO(start);
 
   const expenses = await db.getAllFromIndex(
     "expenses",
     "dateIndex",
-    IDBKeyRange.lowerBound(formattedStartDate, true)
+    IDBKeyRange.lowerBound(startDate.toISOString(), true)
   );
 
   const totalAmount = expenses.reduce(
