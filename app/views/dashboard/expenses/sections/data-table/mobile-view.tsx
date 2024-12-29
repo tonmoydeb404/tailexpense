@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { Badge } from "~/components/ui/badge";
 import { Card, CardTitle } from "~/components/ui/card";
 import { useAppContext } from "~/contexts/app-context";
+import { getForegroundColor } from "~/utils/color";
 import { formatCurrency } from "~/utils/currency";
 import type { TableType } from "./types";
 
@@ -17,6 +18,7 @@ const MobileView = (props: Props) => {
       {table.getRowModel().rows?.length ? (
         table.getRowModel().rows.map((row) => {
           const data = row.original;
+          const { category } = data;
           const cells = row.getVisibleCells();
           const actionsCell = cells[cells.length - 1];
 
@@ -26,8 +28,17 @@ const MobileView = (props: Props) => {
                 <CardTitle className="text-sm font-medium">
                   {data.title || "Untitled"}
                 </CardTitle>
-                <Badge variant="secondary" className="mt-1 w-fit">
-                  {data.category}
+                <Badge
+                  style={
+                    category
+                      ? {
+                          background: category.color,
+                          color: getForegroundColor(category.color),
+                        }
+                      : undefined
+                  }
+                >
+                  {category?.name || "Uncategorized"}
                 </Badge>
               </div>
               <div className="flex flex-col items-end ml-auto">

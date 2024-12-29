@@ -7,6 +7,7 @@ import {
   MoreVertical,
 } from "lucide-react";
 import moment from "moment";
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import {
@@ -18,7 +19,9 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import type { IExpense } from "~/types/expense";
+import { getForegroundColor } from "~/utils/color";
 import { formatCurrency } from "~/utils/currency";
+import type { DataType } from "./types";
 
 type Props = {
   onDelete: (id: string) => void;
@@ -26,7 +29,7 @@ type Props = {
   currency: string | null;
 };
 
-const getColumns = (props: Props): ColumnDef<IExpense>[] => {
+const getColumns = (props: Props): ColumnDef<DataType>[] => {
   const { onDelete, onUpdate, currency } = props;
 
   return [
@@ -105,7 +108,24 @@ const getColumns = (props: Props): ColumnDef<IExpense>[] => {
     {
       accessorKey: "category",
       header: "Category",
-      cell: ({ row }) => <div>{row.getValue("category")}</div>,
+      cell: ({ row }) => {
+        const { category } = row.original;
+
+        return (
+          <Badge
+            style={
+              category
+                ? {
+                    background: category.color,
+                    color: getForegroundColor(category.color),
+                  }
+                : undefined
+            }
+          >
+            {category?.name || "Uncategorized"}
+          </Badge>
+        );
+      },
     },
     {
       accessorKey: "amount",
@@ -142,7 +162,14 @@ const getColumns = (props: Props): ColumnDef<IExpense>[] => {
                 Copy transaction ID
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => onUpdate(transaction)}>
+              <DropdownMenuItem
+                onClick={() =>
+                  onUpdate({
+                    ...transaction,
+                    category: transaction.category?._id ?? null,
+                  })
+                }
+              >
                 Update Details
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onDelete(transaction._id)}>

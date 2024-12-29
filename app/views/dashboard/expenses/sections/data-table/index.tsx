@@ -10,12 +10,13 @@ import {
 } from "@tanstack/react-table";
 
 import { endOfMonth, startOfMonth } from "date-fns";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ExpenseDeleteModal,
   ExpenseUpdateModal,
 } from "~/components/modals/expense";
 import { useAppContext } from "~/contexts/app-context";
+import { useCategories } from "~/db/hooks";
 import { useExpenses } from "~/db/hooks/expense";
 import useModal from "~/hooks/use-modal";
 import type { IExpense } from "~/types/expense";
@@ -30,10 +31,24 @@ const DataTableSection = () => {
   const start = startOfMonth(date).toISOString();
   const end = endOfMonth(date).toISOString();
   const { data, mutate } = useExpenses(start, end);
+  const categories = useCategories();
 
   useEffect(() => {
     mutate();
   }, [start, end]);
+
+  const expenses = useMemo(() => {
+    if (!data) return [];
+    if (!Array.isArray(categories?.data)) {
+      return data.map((item) => ({ ...item, category: null }));
+    }
+
+    return data.map((item) => ({
+      ...item,
+      category:
+        categories.data?.find((cat) => cat._id === item.category) ?? null,
+    }));
+  }, [data, categories?.data]);
 
   const deleteModal = useModal<string>();
   const updateModal = useModal<IExpense>();
@@ -49,7 +64,7 @@ const DataTableSection = () => {
   });
 
   const table = useReactTable({
-    data: data || [],
+    data: expenses,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
