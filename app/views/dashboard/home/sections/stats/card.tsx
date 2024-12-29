@@ -1,6 +1,6 @@
 import { Badge } from "~/components/ui/badge";
 import { Card, CardContent, CardHeader } from "~/components/ui/card";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {

@@ -1,7 +1,7 @@
 import { TrendingDown } from "lucide-react";
 import moment from "moment";
 import { Card, CardContent } from "~/components/ui/card";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { recentTransaction } from "~/data/transaction";
 import { cn } from "~/lib/utils";
 import type { IExpense } from "~/types/expense";

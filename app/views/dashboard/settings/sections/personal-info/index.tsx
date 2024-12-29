@@ -11,7 +11,7 @@ import {
   CardHeader,
 } from "~/components/ui/card";
 import { Form } from "~/components/ui/form";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import Fields from "./fields";
 import { Schema, type SchemaType } from "./schema";
 

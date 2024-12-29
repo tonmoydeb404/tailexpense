@@ -1,4 +1,4 @@
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { useStats } from "~/db/hooks";
 import StatCard from "./card";
 import StatCardSkeleton from "./card-skeleton";

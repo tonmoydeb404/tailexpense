@@ -7,7 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { useYearlyStats } from "~/db/hooks";
 
 const chartConfig: ChartConfig = {

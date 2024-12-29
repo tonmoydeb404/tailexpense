@@ -8,7 +8,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { useCategoryStats } from "~/db/hooks";
 import useResponsiveValue from "~/hooks/use-responsive-value";
 import { formatCurrency } from "~/utils/currency";

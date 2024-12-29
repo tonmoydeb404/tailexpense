@@ -9,7 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import { Toaster } from "./components/ui/sonner";
-import { AppContextProvider } from "./contexts/app-context";
+import { AppContextProvider } from "./contexts/app";
 import stylesheet from "./styles/app.css?url";
 
 export const links: Route.LinksFunction = () => [

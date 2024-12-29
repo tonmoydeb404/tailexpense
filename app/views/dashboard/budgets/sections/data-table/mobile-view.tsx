@@ -2,7 +2,7 @@ import { flexRender } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { Badge } from "~/components/ui/badge";
 import { Card, CardTitle } from "~/components/ui/card";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { formatCurrency } from "~/utils/currency";
 import type { TableType } from "./types";
 

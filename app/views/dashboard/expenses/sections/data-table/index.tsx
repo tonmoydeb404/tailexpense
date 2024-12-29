@@ -15,7 +15,7 @@ import {
   ExpenseDeleteModal,
   ExpenseUpdateModal,
 } from "~/components/modals/expense";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { useCategories } from "~/db/hooks";
 import { useExpenses } from "~/db/hooks/expense";
 import useModal from "~/hooks/use-modal";

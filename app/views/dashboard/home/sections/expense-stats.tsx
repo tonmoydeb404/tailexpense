@@ -22,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { useExpenseStats } from "~/db/hooks";
 import { formatCurrency } from "~/utils/currency";
 

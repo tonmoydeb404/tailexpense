@@ -15,7 +15,7 @@ import {
   BudgetDeleteModal,
   BudgetUpdateModal,
 } from "~/components/modals/budget";
-import { useAppContext } from "~/contexts/app-context";
+import { useAppContext } from "~/contexts/app";
 import { useBudgets } from "~/db/hooks";
 import useModal from "~/hooks/use-modal";
 import type { IBudget } from "~/types/budget";
