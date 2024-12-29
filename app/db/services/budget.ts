@@ -7,9 +7,33 @@ export const createBudget = async (data: BudgetCreate) => {
   return db.add("budgets", { ...data, _id: nanoid() });
 };
 
-export const getBudgets = async () => {
+export const getBudgets = async (start?: string, end?: string) => {
   const db = await getDB();
-  return db.getAll("budgets");
+
+  // Create the date range if start and end are provided
+  const range =
+    start && end
+      ? IDBKeyRange.bound(start, end, false, false)
+      : start
+      ? IDBKeyRange.lowerBound(start, false)
+      : end
+      ? IDBKeyRange.upperBound(end, false)
+      : null;
+
+  let budgets;
+
+  if (range) {
+    budgets = await db.getAllFromIndex("budgets", "monthIndex", range);
+  } else {
+    budgets = await db.getAll("budgets");
+  }
+
+  // Sort by date in descending order (newest first)
+  budgets.sort(
+    (a, b) => new Date(b.month).getTime() - new Date(a.month).getTime()
+  );
+
+  return budgets;
 };
 
 export const getBudgetById = async (id: string) => {

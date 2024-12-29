@@ -10,8 +10,8 @@ import {
 import type { BudgetCreate, BudgetUpdate } from "../types";
 
 // Hook to fetch all budgets
-export const useBudgets = () => {
-  return useSWR("budgets", () => getBudgets());
+export const useBudgets = (start?: string, end?: string) => {
+  return useSWR("budgets", () => getBudgets(start, end));
 };
 
 // Hook to fetch a single budget by ID

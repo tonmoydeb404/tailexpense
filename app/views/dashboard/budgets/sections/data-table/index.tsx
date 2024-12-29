@@ -8,8 +8,9 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import * as React from "react";
 
+import { endOfYear, startOfYear } from "date-fns";
+import { useEffect, useState } from "react";
 import {
   BudgetDeleteModal,
   BudgetUpdateModal,
@@ -25,18 +26,23 @@ import Headers from "./headers";
 import MobileView from "./mobile-view";
 
 const DataTableSection = () => {
-  const { currency } = useAppContext();
-  const { data } = useBudgets();
+  const { currency, date } = useAppContext();
+  const start = startOfYear(date).toISOString();
+  const end = endOfYear(date).toISOString();
+
+  const { data, mutate } = useBudgets(start, end);
+
+  useEffect(() => {
+    mutate();
+  }, [start, end]);
+
   const deleteModal = useModal<string>();
   const updateModal = useModal<IBudget>();
 
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = useState({});
   const columns = getColumns({
     onDelete: deleteModal.openModal,
     onUpdate: updateModal.openModal,
