@@ -7,6 +7,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
+import { useAppContext } from "~/contexts/app-context";
 import { useYearlyStats } from "~/db/hooks";
 
 const chartConfig: ChartConfig = {
@@ -21,7 +22,8 @@ const chartConfig: ChartConfig = {
 };
 
 const BudgetUsage = () => {
-  const { data } = useYearlyStats(new Date().getFullYear());
+  const { date } = useAppContext();
+  const { data } = useYearlyStats(new Date(date).getFullYear());
 
   const report = data?.monthlyBreakdown
     ? data.monthlyBreakdown.map((item) => ({

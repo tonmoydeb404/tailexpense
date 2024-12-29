@@ -8,6 +8,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
+import { useAppContext } from "~/contexts/app-context";
 import { useCategoryStats } from "~/db/hooks";
 import useResponsiveValue from "~/hooks/use-responsive-value";
 import { formatCurrency } from "~/utils/currency";
@@ -15,7 +16,8 @@ import { formatCurrency } from "~/utils/currency";
 type Props = {};
 
 const MonthlyUsage = (props: Props) => {
-  const { data } = useCategoryStats("2024-12-29T07:13:24.886Z");
+  const { date } = useAppContext();
+  const { data } = useCategoryStats(date);
 
   const chartConfig = useMemo(() => {
     if (!Array.isArray(data) || data.length <= 0) return {};

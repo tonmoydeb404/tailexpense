@@ -1,3 +1,4 @@
+import { useAppContext } from "~/contexts/app-context";
 import { useStats } from "~/db/hooks";
 import StatCard from "./card";
 import StatCardSkeleton from "./card-skeleton";
@@ -5,7 +6,8 @@ import StatCardSkeleton from "./card-skeleton";
 type Props = {};
 
 const StatsSection = (props: Props) => {
-  const { data } = useStats("2024-12-29T07:13:24.886Z");
+  const { date } = useAppContext();
+  const { data } = useStats(date);
 
   return (
     <div className="mb-10 w-full">
