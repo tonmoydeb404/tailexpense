@@ -2,7 +2,6 @@ import {
   ArrowRightLeft,
   Landmark,
   LayoutDashboard,
-  Moon,
   Settings,
   Tag,
 } from "lucide-react";
@@ -36,10 +35,5 @@ export const systemLinks = [
     title: "Settings",
     url: paths.dashboard.settings,
     icon: Settings,
-  },
-  {
-    title: "Theme",
-    url: "#",
-    icon: Moon,
   },
 ];

@@ -11,10 +11,13 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "~/components/ui/sidebar";
+import { useTheme } from "~/contexts/theme";
 import { cn } from "~/lib/utils";
 import { generalLinks, systemLinks } from "./config";
+import ThemeToggler from "./theme-toggler";
 
 const DashboardSidebar = () => {
+  const { theme } = useTheme();
   const { state, openMobile, openTab, setOpenMobile, setOpenTab } =
     useSidebar();
   const isOpen = state !== "collapsed";
@@ -29,7 +32,14 @@ const DashboardSidebar = () => {
     <Sidebar collapsible="icon">
       <SidebarHeader className={cn(isSidebarOpen ? "px-8 pt-10" : "", "pb-10")}>
         {isSidebarOpen && (
-          <img src="/brand/logo-full.svg" className={cn("w-full")} />
+          <img
+            src={
+              theme === "dark"
+                ? "/brand/logo-full-light.svg"
+                : "/brand/logo-full.svg"
+            }
+            className={cn("w-full")}
+          />
         )}
         {!isOpen && !openMobile && !openTab && (
           <img src="/brand/logo-mini.svg" className="w-8 max-w-full" />
@@ -77,6 +87,7 @@ const DashboardSidebar = () => {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              <ThemeToggler isSidebarOpen={isSidebarOpen} />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
