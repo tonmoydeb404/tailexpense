@@ -7,22 +7,17 @@ import {
   PopoverTrigger,
 } from "~/components/ui/popover";
 import { useAppContext } from "~/contexts/app-context";
-import useResponsiveValue from "~/hooks/use-responsive-value";
 import { MonthPicker } from "./month-picker";
 
 type Props = {};
 
 const AppDatePicker = (props: Props) => {
   const { date, updateDate } = useAppContext();
-  const size = useResponsiveValue<"default" | "icon">({
-    sm: "icon",
-    md: "default",
-  });
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size={size}>
+        <Button variant="outline" className="max-md:p-0 max-md:size-10">
           <LucideCalendar />
           <span className="max-md:hidden">{format(date, "MMMM yyy")}</span>
         </Button>
