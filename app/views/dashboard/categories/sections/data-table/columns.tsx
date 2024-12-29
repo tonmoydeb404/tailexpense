@@ -1,5 +1,12 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  MoreHorizontal,
+  MoreVertical,
+} from "lucide-react";
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import {
@@ -11,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import type { ICategory } from "~/types/category";
+import { getForegroundColor } from "~/utils/color";
 
 type Props = {
   onDelete: (id: string) => void;
@@ -70,7 +78,16 @@ const getColumns = (props: Props): ColumnDef<ICategory>[] => {
     {
       accessorKey: "color",
       header: "Color",
-      cell: ({ row }) => <div>{row.getValue("color")}</div>,
+      cell: ({ row }) => {
+        const { color } = row.original;
+        return (
+          <Badge
+            style={{ background: color, color: getForegroundColor(color) }}
+          >
+            {color}
+          </Badge>
+        );
+      },
     },
     {
       id: "actions",
@@ -81,9 +98,10 @@ const getColumns = (props: Props): ColumnDef<ICategory>[] => {
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
+              <Button variant="ghost" size={"icon"} className="size-8">
                 <span className="sr-only">Open menu</span>
-                <MoreHorizontal />
+                <MoreHorizontal className="max-md:hidden" />
+                <MoreVertical className="md:hidden" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

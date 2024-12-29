@@ -16,7 +16,7 @@ type Props = { table: TableType };
 const DesktopView = (props: Props) => {
   const { table } = props;
   return (
-    <Table>
+    <Table className="max-md:hidden">
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
