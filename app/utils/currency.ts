@@ -1,6 +1,6 @@
 export function formatCurrency(
   value: number,
-  currency?: string | null,
+  currency: string | null,
   options?: Intl.NumberFormatOptions
 ) {
   if (typeof value !== "number") {
