@@ -21,6 +21,7 @@ import getColumns from "./columns";
 import DesktopView from "./desktop-view";
 import Footer from "./footer";
 import Headers from "./headers";
+import MobileView from "./mobile-view";
 
 const DataTableSection = () => {
   const { data } = useExpenses();
@@ -61,7 +62,8 @@ const DataTableSection = () => {
   return (
     <div className="w-full">
       <Headers table={table} />
-      <div className="rounded-md border mb-5">
+      <div className="rounded-md md:border mb-5">
+        <MobileView table={table} />
         <DesktopView table={table} />
       </div>
       <Footer table={table} />
