@@ -1,10 +1,7 @@
 import { z } from "zod";
 
-export const TypeSchema = z.enum(["INCOME", "EXPENSE"]);
-
 export const Schema = z.object({
   title: z.string().nonempty("Title is required"),
-  type: TypeSchema,
   amount: z
     .number()
     .int("Amount must be an integer")

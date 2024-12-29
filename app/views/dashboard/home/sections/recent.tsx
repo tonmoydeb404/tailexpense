@@ -3,7 +3,7 @@ import moment from "moment";
 import { Card, CardContent } from "~/components/ui/card";
 import { recentTransaction } from "~/data/transaction";
 import { cn } from "~/lib/utils";
-import type { ITransaction } from "~/types/transaction";
+import type { IExpense } from "~/types/expense";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {};
@@ -28,7 +28,7 @@ export default RecentSection;
 // ----------------------------------------------------------------------
 
 type ItemProps = {
-  data: ITransaction;
+  data: IExpense;
 };
 const Item = (props: ItemProps) => {
   const { data } = props;

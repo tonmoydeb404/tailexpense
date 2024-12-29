@@ -2,11 +2,11 @@ import { TrendingDown, TrendingUp } from "lucide-react";
 import moment from "moment";
 import { Card, CardContent } from "~/components/ui/card";
 import { cn } from "~/lib/utils";
-import type { ITransaction } from "~/types/transaction";
+import type { IExpense } from "~/types/expense";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {
-  data: ITransaction;
+  data: IExpense;
 };
 const Row = (props: Props) => {
   const { data } = props;

@@ -11,21 +11,21 @@ import {
 import * as React from "react";
 
 import {
-  TransactionDeleteModal,
-  TransactionUpdateModal,
-} from "~/components/modals/transaction";
-import { useTransactions } from "~/db/hooks/transaction";
+  ExpenseDeleteModal,
+  ExpenseUpdateModal,
+} from "~/components/modals/expense";
+import { useExpenses } from "~/db/hooks/expense";
 import useModal from "~/hooks/use-modal";
-import type { ITransaction } from "~/types/transaction";
+import type { IExpense } from "~/types/expense";
 import getColumns from "./columns";
 import DesktopView from "./desktop-view";
 import Footer from "./footer";
 import Headers from "./headers";
 
 const DataTableSection = () => {
-  const { data } = useTransactions();
+  const { data } = useExpenses();
   const deleteModal = useModal<string>();
-  const updateModal = useModal<ITransaction>();
+  const updateModal = useModal<IExpense>();
 
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -65,11 +65,11 @@ const DataTableSection = () => {
         <DesktopView table={table} />
       </div>
       <Footer table={table} />
-      <TransactionDeleteModal
+      <ExpenseDeleteModal
         data={deleteModal.data}
         onClose={deleteModal.closeModal}
       />
-      <TransactionUpdateModal
+      <ExpenseUpdateModal
         data={updateModal.data}
         onClose={updateModal.closeModal}
       />

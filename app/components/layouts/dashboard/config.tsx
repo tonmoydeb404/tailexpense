@@ -15,8 +15,8 @@ export const generalLinks = [
     icon: LayoutDashboard,
   },
   {
-    title: "Transactions",
-    url: paths.dashboard.transactions,
+    title: "Expenses",
+    url: paths.dashboard.expenses,
     icon: ArrowRightLeft,
   },
   {

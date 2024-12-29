@@ -1,9 +1,6 @@
-export type TransactionType = "INCOME" | "EXPENSE";
-
-export interface ITransaction {
+export interface IExpense {
   _id: string;
-  title: string;
-  type: TransactionType;
+  title?: string;
   amount: number; // (store in lowest grade)
   category: string; // (ref to category collection)
   date: string; // (ISO)

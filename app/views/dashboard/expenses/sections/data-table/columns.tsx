@@ -11,15 +11,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import type { ITransaction } from "~/types/transaction";
+import type { IExpense } from "~/types/expense";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {
   onDelete: (id: string) => void;
-  onUpdate: (transaction: ITransaction) => void;
+  onUpdate: (transaction: IExpense) => void;
 };
 
-const getColumns = (props: Props): ColumnDef<ITransaction>[] => {
+const getColumns = (props: Props): ColumnDef<IExpense>[] => {
   const { onDelete, onUpdate } = props;
 
   return [

@@ -1,4 +1,4 @@
-import { TransactionCreateModal } from "~/components/modals/transaction";
+import { ExpenseCreateModal } from "~/components/modals/expense";
 import { Input } from "~/components/ui/input";
 import ColumnFilter from "./column-filter";
 import type { TableType } from "./types";
@@ -24,7 +24,7 @@ const Headers = (props: Props) => {
         <ColumnFilter table={table} />
       </div>
       <div className="flex items-center">
-        <TransactionCreateModal />
+        <ExpenseCreateModal />
       </div>
     </div>
   );

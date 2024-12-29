@@ -1,6 +1,6 @@
-import type { ITransaction } from "~/types/transaction";
+import type { IExpense } from "~/types/expense";
 
-export const recentTransaction: ITransaction[] = [
+export const recentTransaction: IExpense[] = [
   {
     _id: "1",
     title: "Salary",
@@ -51,7 +51,7 @@ export const recentTransaction: ITransaction[] = [
   },
 ];
 
-export const transactions: ITransaction[] = [
+export const transactions: IExpense[] = [
   {
     _id: "txn_0001",
     title: "Gym Membership",

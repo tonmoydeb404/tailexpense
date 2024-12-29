@@ -4,14 +4,14 @@ import DataTableSection from "./sections/data-table";
 
 type Props = {};
 
-const DashboardTransactionsView = (props: Props) => {
+const DashboardExpensesView = (props: Props) => {
   return (
     <>
       <Header
-        title="Transactions"
+        title="Expenses"
         links={[
           { title: "Home", href: paths.dashboard.root },
-          { title: "Transactions", href: paths.dashboard.transactions },
+          { title: "Expenses", href: paths.dashboard.expenses },
         ]}
       />
       <DataTableSection />
@@ -19,4 +19,4 @@ const DashboardTransactionsView = (props: Props) => {
   );
 };
 
-export default DashboardTransactionsView;
+export default DashboardExpensesView;

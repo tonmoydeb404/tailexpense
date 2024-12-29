@@ -9,16 +9,16 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
-import { useDeleteTransaction } from "~/db/hooks/transaction";
+import { useDeleteExpense } from "~/db/hooks/expense";
 
 type Props = {
   data: string | null;
   onClose: () => void;
 };
 
-export const TransactionDeleteModal = (props: Props) => {
+export const ExpenseDeleteModal = (props: Props) => {
   const { data, onClose } = props;
-  const { trigger, isMutating } = useDeleteTransaction();
+  const { trigger, isMutating } = useDeleteExpense();
 
   const onConfirm = () => {
     if (!data) return;

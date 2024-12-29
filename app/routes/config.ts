@@ -2,7 +2,7 @@ export const paths = {
   root: "/",
   dashboard: {
     root: "/dashboard",
-    transactions: "/dashboard/transactions",
+    expenses: "/dashboard/expenses",
     categories: "/dashboard/categories",
     budgets: "/dashboard/budgets",
     settings: "/dashboard/settings",

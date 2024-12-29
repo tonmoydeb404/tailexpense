@@ -1,5 +1,5 @@
 import type { MetaArgs } from "react-router";
-import DashboardTransactionsView from "~/views/dashboard/transactions";
+import DashboardExpensesView from "~/views/dashboard/expenses";
 
 export function meta({}: MetaArgs) {
   return [
@@ -11,7 +11,7 @@ export function meta({}: MetaArgs) {
 type Props = {};
 
 const Transactions = (props: Props) => {
-  return <DashboardTransactionsView />;
+  return <DashboardExpensesView />;
 };
 
 export default Transactions;
