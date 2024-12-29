@@ -1,3 +1,4 @@
+import SeedData from "~/components/common/seed-data";
 import { paths } from "~/routes/config";
 import Header from "../common/header";
 import DataManagementSection from "./sections/data-management";
@@ -17,6 +18,7 @@ const DashboardSettingsView = (props: Props) => {
       />
       <PersonalInfoSection />
       <DataManagementSection />
+      <SeedData />
     </>
   );
 };
