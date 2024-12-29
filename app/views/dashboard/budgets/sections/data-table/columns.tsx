@@ -1,6 +1,12 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal } from "lucide-react";
-import moment from "moment";
+import { format } from "date-fns";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  MoreHorizontal,
+  MoreVertical,
+} from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import {
@@ -67,7 +73,7 @@ const getColumns = (props: Props): ColumnDef<IBudget>[] => {
       },
       cell: ({ row }) => (
         <div className="capitalize">
-          {moment(row.getValue("month")).format("MMMM-YYYY")}
+          {format(row.getValue("month"), "MMMM yyyy")}
         </div>
       ),
     },
@@ -106,9 +112,10 @@ const getColumns = (props: Props): ColumnDef<IBudget>[] => {
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
+              <Button variant="ghost" size={"icon"} className="size-8">
                 <span className="sr-only">Open menu</span>
-                <MoreHorizontal />
+                <MoreHorizontal className="max-md:hidden" />
+                <MoreVertical className="md:hidden" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
