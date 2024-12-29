@@ -18,7 +18,7 @@ export interface AppDB extends DBSchema {
   expenses: {
     key: string;
     value: IExpense;
-    indexes: {};
+    indexes: { dateIndex: string };
   };
 }
 
@@ -47,10 +47,11 @@ export const getDB = async (): Promise<IDBPDatabase<AppDB>> => {
         }
 
         if (!database.objectStoreNames.contains("expenses")) {
-          database.createObjectStore("expenses", {
+          const store = database.createObjectStore("expenses", {
             keyPath: "_id",
             autoIncrement: false,
           });
+          store.createIndex("dateIndex", "date", { unique: false });
         }
       },
     });
