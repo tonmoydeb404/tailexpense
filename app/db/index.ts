@@ -22,8 +22,8 @@ export interface AppDB extends DBSchema {
   };
 }
 
-const DB_NAME = "MyAppDB";
-const DB_VERSION = 1;
+const DB_NAME = import.meta.env.VITE_APP_DB_NAME;
+const DB_VERSION = Number(import.meta.env.VITE_APP_DB_VERSION);
 
 let db: IDBPDatabase<AppDB> | null = null;
 
