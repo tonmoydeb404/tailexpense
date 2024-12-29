@@ -17,17 +17,19 @@ export const getStats = async (month: string) => {
   const prevMonth = subMonths(currentMonth, 1);
 
   // Budgets ----------------------------------------------------------------------
-  const budget = await db.getFromIndex(
+  const budgets = await db.getAllFromIndex(
     "budgets",
     "monthIndex",
-    currentMonth.toISOString()
+    IDBKeyRange.bound(
+      formatISO(prevMonth),
+      formatISO(endOfMonth(currentMonth)),
+      false,
+      false
+    )
   );
 
-  const prevBudget = await db.getFromIndex(
-    "budgets",
-    "monthIndex",
-    formatISO(prevMonth)
-  );
+  const budget = budgets.find((item) => currentMonth === new Date(item.month));
+  const prevBudget = budgets.find((item) => prevMonth === new Date(item.month));
 
   const budgetIncrease =
     budget && prevBudget && prevBudget.amount !== 0
@@ -39,7 +41,7 @@ export const getStats = async (month: string) => {
     "expenses",
     "dateIndex",
     IDBKeyRange.bound(
-      formatISO(startOfMonth(currentMonth)),
+      formatISO(currentMonth),
       formatISO(endOfMonth(currentMonth)),
       false,
       false
