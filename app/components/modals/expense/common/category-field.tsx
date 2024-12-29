@@ -11,12 +11,13 @@ const CategoryField = () => {
       name="category"
       placeholder="Select Category"
       label="Category"
-      options={
-        data?.map((category) => ({
+      options={[
+        { label: "None", value: "" },
+        ...(data?.map((category) => ({
           value: category._id,
           label: category.name,
-        })) || []
-      }
+        })) || []),
+      ]}
       queryPlaceholder="Search Categories"
       emptyPlaceholder="No Categories Found"
     />
