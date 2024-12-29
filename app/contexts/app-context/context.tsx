@@ -6,6 +6,8 @@ export interface IAppContext {
   isOnboarded: boolean;
   isLoading: boolean;
   saveData: (props: { name: string; currency: string }) => void;
+  updateDate: (value: string) => void;
+  date: string;
 }
 
 export const defaultValue: IAppContext = {
@@ -14,6 +16,8 @@ export const defaultValue: IAppContext = {
   isOnboarded: false,
   isLoading: true,
   saveData: () => {},
+  updateDate: () => {},
+  date: new Date().toISOString(),
 };
 export const AppContext = createContext(defaultValue);
 

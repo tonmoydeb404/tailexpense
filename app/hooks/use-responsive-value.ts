@@ -2,11 +2,14 @@ import { useMemo } from "react";
 import type { Breakpoint } from "./use-breakpoint";
 import useBreakpoint from "./use-breakpoint";
 
-type Value = Partial<Record<Breakpoint, string | number>>;
+type Value<T> = Partial<Record<Breakpoint, T>>;
 
 const breakpointsOrder: Breakpoint[] = ["sm", "md", "lg", "xl", "2xl"]; // Define your breakpoint order here
 
-const useResponsiveValue = (values: Value, def?: string | number) => {
+const useResponsiveValue = <T extends string | number>(
+  values: Value<T>,
+  def?: T
+) => {
   const breakpoint = useBreakpoint();
 
   const resolvedValue = useMemo(() => {
