@@ -9,7 +9,7 @@ const Footer = (props: Props) => {
   const { table } = props;
   return (
     <div className="flex items-center justify-end flex-col-reverse sm:flex-row gap-2">
-      <div className="flex-1 text-sm text-muted-foreground">
+      <div className="flex-1 text-sm text-muted-foreground max-md:hidden">
         {table.getFilteredSelectedRowModel().rows.length} of{" "}
         {table.getFilteredRowModel().rows.length} row(s) selected.
       </div>
