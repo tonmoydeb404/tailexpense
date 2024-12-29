@@ -20,8 +20,6 @@ type Props = {};
 const PersonalInfoSection = (props: Props) => {
   const { currency, name, saveData } = useAppContext();
 
-  console.log({ currency, name });
-
   const defaultValues = useMemo<SchemaType>(
     () => ({
       name: name || "",
@@ -30,6 +28,7 @@ const PersonalInfoSection = (props: Props) => {
     [name, currency]
   );
   const formOptions = useForm({ defaultValues, resolver: zodResolver(Schema) });
+  const { handleSubmit, reset, formState } = formOptions;
 
   const onSubmit: SubmitHandler<SchemaType> = (values) => {
     saveData(values);
@@ -37,20 +36,19 @@ const PersonalInfoSection = (props: Props) => {
   };
 
   const onReset = () => {
-    formOptions.reset(defaultValues);
+    reset(defaultValues);
   };
 
   useEffect(() => {
-    formOptions.reset(defaultValues);
+    reset(defaultValues);
   }, [defaultValues]);
   return (
     <Card className="max-w-xl w-full mb-10 shadow-none">
       <CardHeader>
-        {/* <CardTitle>Personal Info</CardTitle> */}
         <CardDescription>Personal Info</CardDescription>
       </CardHeader>
       <Form {...formOptions}>
-        <form onSubmit={formOptions.handleSubmit(onSubmit)} onReset={onReset}>
+        <form onSubmit={handleSubmit(onSubmit)} onReset={onReset}>
           <CardContent>
             <Fields />
           </CardContent>
@@ -58,7 +56,12 @@ const PersonalInfoSection = (props: Props) => {
             <Button size={"sm"} type="submit">
               Update Details
             </Button>
-            <Button size={"sm"} variant={"outline"} type="reset">
+            <Button
+              size={"sm"}
+              variant={"outline"}
+              type="reset"
+              disabled={!formState.isDirty}
+            >
               Cancel Changes
             </Button>
           </CardFooter>

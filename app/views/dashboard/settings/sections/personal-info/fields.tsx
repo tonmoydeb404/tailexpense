@@ -8,19 +8,17 @@ const Fields = (props: Props) => {
   return (
     <>
       <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-2 mb-4 sm:mb-3">
-        <Label className="inline-block font-normal min-w-[110px]">
-          Your Name:{" "}
-        </Label>
+        <Label className="inline-block font-normal min-w-[110px]">Name: </Label>
         <RHFTextField name="name" className="flex-1" />
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-2 mb-4 sm:mb-5">
         <Label className="inline-block font-normal min-w-[110px]">
-          Your Country:{" "}
+          Country:{" "}
         </Label>
         <RHFComboField
           options={countries
-            .filter((item) => item.currency)
-            .map((item) => ({ label: item.name, value: item.name }))}
+            .filter((item) => typeof item.currency === "string")
+            .map((item) => ({ label: item.name, value: item.currency }))}
           name="currency"
           placeholder="Search Country"
           emptyPlaceholder="Country not found"
