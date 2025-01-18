@@ -51,11 +51,11 @@ const CountryField = () => {
           <CommandList>
             <CommandEmpty>No country found.</CommandEmpty>
             <CommandGroup>
-              {countries.map((item) => {
+              {countries.map((item, index) => {
                 if (!item.currency) return null;
                 return (
                   <CommandItem
-                    key={item.currency}
+                    key={item.name}
                     value={item.currency + item.name}
                     onSelect={(currentValue) => {
                       setValue(currentValue === value ? "" : currentValue);

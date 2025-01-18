@@ -13,16 +13,21 @@ const Fields = (props: Props) => {
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-2 mb-4 sm:mb-5">
         <Label className="inline-block font-normal min-w-[110px]">
-          Country:{" "}
+          Currency:{" "}
         </Label>
         <RHFComboField
           options={countries
             .filter((item) => typeof item.currency === "string")
-            .map((item) => ({ label: item.name, value: item.currency }))}
+            .reduce(
+              (prev, curr) =>
+                prev.includes(curr.currency) ? prev : [...prev, curr.currency],
+              [] as string[]
+            )
+            .map((item) => ({ label: item, value: item }))}
           name="currency"
-          placeholder="Search Country"
-          emptyPlaceholder="Country not found"
-          queryPlaceholder="Search for country"
+          placeholder="Search Currency"
+          emptyPlaceholder="Currency not found"
+          queryPlaceholder="Search for currency"
         />
       </div>
     </>
