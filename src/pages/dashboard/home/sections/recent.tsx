@@ -1,24 +1,41 @@
-import { TrendingDown } from "lucide-react";
+import { endOfMonth, startOfMonth } from "date-fns";
 import moment from "moment";
+import { useEffect, useMemo } from "react";
 import { Card, CardContent } from "~/components/ui/card";
 import { useAppContext } from "~/contexts/app";
-import { cn } from "~/lib/utils";
+import { useExpenses } from "~/db/hooks";
 import type { IExpense } from "~/types/expense";
 import { formatCurrency } from "~/utils/currency";
 
 type Props = {};
 
 const RecentSection = (props: Props) => {
+  const { date } = useAppContext();
+  const start = startOfMonth(date).toISOString();
+  const end = endOfMonth(date).toISOString();
+  const { data, mutate } = useExpenses(start, end);
+
+  useEffect(() => {
+    mutate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start, end]);
+
+  const filtered = useMemo(() => {
+    if (!Array.isArray(data)) return [];
+
+    return [...data].slice(0, 7);
+  }, [data]);
+
   return (
     <div>
       <h3 className="text-sm uppercase mb-3 font-medium text-muted-foreground">
         Recent
       </h3>
-      {/* <div className="flex flex-col gap-2">
-        {recentTransaction.map((item) => (
+      <div className="flex flex-col gap-2">
+        {filtered.map((item) => (
           <Item data={item} key={item._id} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
@@ -37,10 +54,6 @@ const Item = (props: ItemProps) => {
   return (
     <Card>
       <CardContent className="py-3 px-4 flex flex-row">
-        <div className={cn("self-center border p-1.5 rounded mr-4")}>
-          <TrendingDown />
-        </div>
-
         <div className="flex-1">
           <h2 className="text-base font-medium">{data.title || "Untitled"}</h2>
           <span className="text-sm text-muted-foreground">

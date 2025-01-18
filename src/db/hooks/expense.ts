@@ -1,5 +1,6 @@
 import useSWR, { mutate } from "swr";
 import useSWRMutation from "swr/mutation";
+import { IExpense } from "~/types/expense";
 import {
   createExpense,
   deleteExpense,
@@ -8,10 +9,18 @@ import {
   updateExpense,
 } from "../services/expense";
 import type { ExpenseCreate, ExpenseUpdate } from "../types";
+import { getPaginatedData } from "../utils";
 
 // Hook to fetch all expenses
 export const useExpenses = (start?: string, end?: string) => {
   return useSWR("expenses", () => getExpenses(start, end));
+};
+
+// Hook to fetch all expenses
+export const usePaginatedExpenses = (offset: number, limit: number) => {
+  return useSWR(["expenses", offset, limit], () =>
+    getPaginatedData<IExpense>("expenses", offset, limit, "dateIndex")
+  );
 };
 
 // Hook to fetch a single expense by ID
