@@ -1,7 +1,9 @@
 import { endOfMonth, startOfMonth } from "date-fns";
+import { LucideBox } from "lucide-react";
 import moment from "moment";
 import { useEffect, useMemo } from "react";
 import { Card, CardContent } from "~/components/ui/card";
+import { Skeleton } from "~/components/ui/skeleton";
 import { useAppContext } from "~/contexts/app";
 import { useExpenses } from "~/db/hooks";
 import type { IExpense } from "~/types/expense";
@@ -13,7 +15,7 @@ const RecentSection = (props: Props) => {
   const { date } = useAppContext();
   const start = startOfMonth(date).toISOString();
   const end = endOfMonth(date).toISOString();
-  const { data, mutate } = useExpenses(start, end);
+  const { data, mutate, isLoading } = useExpenses(start, end);
 
   useEffect(() => {
     mutate();
@@ -32,9 +34,28 @@ const RecentSection = (props: Props) => {
         Recent
       </h3>
       <div className="flex flex-col gap-2">
-        {filtered.map((item) => (
-          <Item data={item} key={item._id} />
-        ))}
+        {!isLoading ? (
+          <>
+            {filtered.map((item) => (
+              <Item data={item} key={item._id} />
+            ))}
+
+            {filtered.length === 0 && (
+              <div className="border border-dashed px-4 py-8 text-center rounded-lg flex flex-col items-center justify-center">
+                <LucideBox className="mb-3 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">
+                  Nothing yet
+                </span>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            <Skeleton className="w-full h-10" />
+            <Skeleton className="w-full h-10" />
+            <Skeleton className="w-full h-10" />
+          </>
+        )}
       </div>
     </div>
   );
