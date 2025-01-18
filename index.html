@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>TailExpense - Daily Life Expense Tracker | Budget Management Made Easy</title>
+  <meta name="description"
+    content="Manage your finances effortlessly with TailExpense. Track expenses, set budgets, and analyze spending trends with this smart and user-friendly expense tracker. Powered by React.js, TailwindCSS, IndexedDB, and Firebase.">
+  <meta name="keywords"
+    content="expense tracker, budget management, TailExpense, track expenses online, React.js expense tracker, TailwindCSS app, IndexedDB finance app, Firebase budget app">
+  <meta name="author" content="tonmoydeb404">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="TailExpense - The Ultimate Expense Tracker">
+  <meta property="og:description"
+    content="Take control of your finances with TailExpense. This intuitive app helps you track spending, manage budgets, and gain financial insights in real-time.">
+  <meta property="og:image" content="https://tailexpense.tonmoydeb.com/brand/og.webp">
+  <meta property="og:url" content="https://tailexpense.tonmoydeb.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TailExpense - Manage Your Finances Seamlessly">
+  <meta name="twitter:description"
+    content="TailExpense helps you track expenses, set budgets, and monitor spending habits in one place. Try it now!">
+  <meta name="twitter:image" content="https://tailexpense.tonmoydeb.com/brand/og.webp">
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://tailexpense.tonmoydeb.com">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://tailexpense.tonmoydeb.com/brand/logo-mini.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800;900&family=Manrope:wght@200..800&display=swap">
+
+  <style>
+    .server {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+
+</head>
+
+<body className="min-h-screen">
+
+  <!-- Prevent Theme Flashing -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+
+  <main id="root"></main>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Content for SEO -->
+  <img src="/brand/og.webp" class="server" style="max-width: 100%;" alt="TailExpense - Daily Life Expense Tracker" />
+  <header class="server">
+    <h1>TailExpense - Daily Life Expense Tracker</h1>
+    <p>Track your expenses, manage budgets, and gain financial insights effortlessly. Start using TailExpense today!</p>
+  </header>
+
+
+  <section class="server">
+    <h2>Effortless Expense Tracking</h2>
+    <p>Log your expenses in real-time with a clean and responsive UI designed to make tracking easy.</p>
+  </section>
+  <section class="server">
+    <h2>Budget Management Simplified</h2>
+    <p>Set monthly or weekly budgets and monitor your progress visually to stay on track.</p>
+  </section>
+  <section class="server">
+    <h2>Analyze Spending Trends</h2>
+    <p>Gain actionable insights with detailed reports and charts tailored to your financial needs.</p>
+  </section>
+
+</body>
+
+</html>

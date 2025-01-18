@@ -1,0 +1,15 @@
+{
+  "name": "TailExpense",
+  "short_name": "TailExpense",
+  "icons": [
+    {
+      "src": "/brand/logo-mini.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}

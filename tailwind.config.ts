@@ -1,10 +1,10 @@
 import type { Config } from "tailwindcss";
 import tailwindAnimate from "tailwindcss-animate";
-import { generateColorObject } from "./app/lib/utils";
+import { generateColorObject } from "./src/lib/utils";
 
 export default {
   darkMode: ["class"],
-  content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
       container: {
