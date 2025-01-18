@@ -1,5 +1,3 @@
-"use client";
-
 import { RHFComboField } from "~/components/common/rhf";
 import { useCategories } from "~/db/hooks";
 

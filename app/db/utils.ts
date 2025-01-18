@@ -1,6 +1,6 @@
 import { getDB } from ".";
 
-type Store = "categories" | "budgets" | "transactions";
+type Store = "categories" | "budgets" | "expenses";
 
 export const getPaginatedData = async <T>(
   storeName: Store,

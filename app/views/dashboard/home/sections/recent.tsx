@@ -2,7 +2,6 @@ import { TrendingDown } from "lucide-react";
 import moment from "moment";
 import { Card, CardContent } from "~/components/ui/card";
 import { useAppContext } from "~/contexts/app";
-import { recentTransaction } from "~/data/transaction";
 import { cn } from "~/lib/utils";
 import type { IExpense } from "~/types/expense";
 import { formatCurrency } from "~/utils/currency";
@@ -15,11 +14,11 @@ const RecentSection = (props: Props) => {
       <h3 className="text-sm uppercase mb-3 font-medium text-muted-foreground">
         Recent
       </h3>
-      <div className="flex flex-col gap-2">
+      {/* <div className="flex flex-col gap-2">
         {recentTransaction.map((item) => (
           <Item data={item} key={item._id} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
