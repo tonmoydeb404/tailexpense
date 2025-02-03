@@ -20,8 +20,8 @@ export const useYearlyStats = (year: number) => {
   return useSWR(year ? `stats/year/${year}` : null, () => getYearlyStats(year));
 };
 
-export const useExpenseStats = (start: string) => {
-  return useSWR(start ? `stats/expense/${start}` : null, () =>
-    getExpenseStats(start)
+export const useExpenseStats = (start: string, end: string) => {
+  return useSWR(start && end ? `stats/expense/${start}-${end}` : null, () =>
+    getExpenseStats(start, end)
   );
 };

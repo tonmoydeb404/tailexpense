@@ -36,20 +36,20 @@ const chartConfig = {
 type TimeRange = "90d" | "30d" | "7d";
 
 const ExpenseStats = () => {
-  const { currency } = useAppContext();
+  const { currency, date } = useAppContext();
   const [timeRange, setTimeRange] = useState<TimeRange>("90d");
   const start = useMemo(() => {
     switch (timeRange) {
       case "30d":
-        return subDays(new Date(), 30);
+        return subDays(new Date(date), 30);
       case "90d":
-        return subDays(new Date(), 90);
+        return subDays(new Date(date), 90);
       case "7d":
-        return subDays(new Date(), 7);
+        return subDays(new Date(date), 7);
     }
-  }, [timeRange]);
+  }, [date, timeRange]);
 
-  const { data } = useExpenseStats(start.toISOString());
+  const { data } = useExpenseStats(start.toISOString(), date);
 
   const report = data?.expenses?.map((item) => ({
     _id: item._id,

@@ -177,15 +177,21 @@ export const getYearlyStats = async (year: number) => {
   };
 };
 
-export const getExpenseStats = async (start: string) => {
+export const getExpenseStats = async (start: string, end: string) => {
   const db = await getDB();
 
   const startDate = parseISO(start);
+  const endDate = parseISO(end);
 
   const expenses = await db.getAllFromIndex(
     "expenses",
     "dateIndex",
-    IDBKeyRange.lowerBound(startDate.toISOString(), true)
+    IDBKeyRange.bound(
+      startDate.toISOString(),
+      endDate.toISOString(),
+      true,
+      true
+    )
   );
 
   const totalAmount = expenses.reduce(
