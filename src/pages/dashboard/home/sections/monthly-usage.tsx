@@ -1,3 +1,4 @@
+import { LucideBox } from "lucide-react";
 import { useMemo } from "react";
 import { Label, Pie, PieChart } from "recharts";
 
@@ -46,6 +47,7 @@ const MonthlyUsage = (props: Props) => {
     return chartData.reduce((acc, curr) => acc + curr.total, 0);
   }, [chartData]);
   const innerRadius = useResponsiveValue({ "2xl": 70, sm: 60 });
+  const isEmpty = !data?.length || !data?.find((item) => !!item.total);
 
   return (
     <div className="h-full flex flex-col">
@@ -53,7 +55,7 @@ const MonthlyUsage = (props: Props) => {
         Monthly Usage
       </h3>
       <Card className="flex-1 flex flex-col justify-center">
-        <CardContent className="p-0">
+        <CardContent className="p-0 relative">
           <ChartContainer
             config={chartConfig}
             className="aspect-square max-h-[400px] mx-auto"
@@ -104,6 +106,14 @@ const MonthlyUsage = (props: Props) => {
               </Pie>
             </PieChart>
           </ChartContainer>
+          {isEmpty && (
+            <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full">
+              <LucideBox className="text-muted-foreground mb-3" />
+              <p className="text-muted-foreground text-sm">
+                Nothing to show yet
+              </p>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
