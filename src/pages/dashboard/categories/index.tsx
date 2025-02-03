@@ -7,6 +7,7 @@ type Props = {};
 const DashboardCategoriesPage = (props: Props) => {
   return (
     <>
+      <title>Categories - TailExpenese</title>
       <Header
         title="Categories"
         links={[

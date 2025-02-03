@@ -12,6 +12,7 @@ type Props = {};
 const DashboardHomePage = (props: Props) => {
   return (
     <>
+      <title>Dashboard - TailExpenese</title>
       <Header title="Dashboard" links={[{ title: "Home" }]} />
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 w-full">
         <div className="xl:col-span-8 2xl:col-span-9">
