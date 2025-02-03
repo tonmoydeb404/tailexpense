@@ -20,7 +20,7 @@ const Headers = (props: Props) => {
           className="max-w-sm w-full"
         />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-stretch flex-col sm:flex-row sm:items-center">
         <CategoryCreateModal />
       </div>
     </div>

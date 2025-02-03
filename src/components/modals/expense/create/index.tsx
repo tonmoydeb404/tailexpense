@@ -53,7 +53,7 @@ export const ExpenseCreateModal = () => {
   return (
     <Dialog open={modal} onOpenChange={setModal}>
       <DialogTrigger asChild>
-        <Button variant="outline">Add New</Button>
+        <Button variant="secondary">Add New</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
