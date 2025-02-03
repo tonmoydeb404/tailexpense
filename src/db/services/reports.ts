@@ -10,10 +10,10 @@ import {
 } from "date-fns";
 import { getDB } from "../index";
 
-export const getStats = async (month: string) => {
+export const getStats = async (date: string) => {
   const db = await getDB();
 
-  const currentMonth = startOfMonth(month);
+  const currentMonth = startOfMonth(date);
   const prevMonth = subMonths(currentMonth, 1);
 
   // Budgets ----------------------------------------------------------------------

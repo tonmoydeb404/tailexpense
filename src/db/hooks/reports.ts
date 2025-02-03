@@ -6,8 +6,8 @@ import {
   getYearlyStats,
 } from "../services/reports";
 
-export const useStats = (month: string) => {
-  return useSWR(month ? `stats/${month}` : null, () => getStats(month));
+export const useStats = (date: string) => {
+  return useSWR(date ? `stats/${date}` : null, () => getStats(date));
 };
 
 export const useCategoryStats = (month: string) => {

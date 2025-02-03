@@ -1,10 +1,15 @@
+import { formatISO, startOfMonth } from "date-fns";
 import { nanoid } from "nanoid";
 import { getDB } from "..";
 import type { BudgetCreate, BudgetUpdate } from "../types";
 
 export const createBudget = async (data: BudgetCreate) => {
   const db = await getDB();
-  return db.add("budgets", { ...data, _id: nanoid() });
+  return db.add("budgets", {
+    ...data,
+    month: formatISO(startOfMonth(data.month)),
+    _id: nanoid(),
+  });
 };
 
 export const getBudgets = async (start?: string, end?: string) => {
