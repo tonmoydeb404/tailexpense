@@ -1,5 +1,5 @@
 import useSWR, { mutate } from "swr";
-import useSWRMutation from "swr/mutation";
+import useSWRMutationWithDefault from "~/hooks/use-swr-mutation-with-default";
 import { IExpense } from "~/types/expense";
 import {
   createExpense,
@@ -25,18 +25,18 @@ export const usePaginatedExpenses = (offset: number, limit: number) => {
 
 // Hook to fetch a single expense by ID
 export const useExpense = (id: string) => {
-  return useSWR(id ? `expenses/${id}` : null, () => getExpenseById(id));
+  return useSWR(id ? ["expenses", id] : null, () => getExpenseById(id));
 };
 
 // Mutation: Add a new expense
 type AddOptions = { arg: ExpenseCreate };
 export const useAddExpense = () => {
-  return useSWRMutation(
-    "expenses",
+  return useSWRMutationWithDefault(
+    "expenses/create",
     (_, { arg }: AddOptions) => createExpense(arg),
     {
       onSuccess: () => {
-        mutate("expenses");
+        mutate((key) => Array.isArray(key) && key[0] === "expenses");
       },
     }
   );
@@ -45,8 +45,8 @@ export const useAddExpense = () => {
 // Mutation: Update a expense
 type EditOptions = { arg: { id: string; updates: ExpenseUpdate } };
 export const useEditExpense = () => {
-  return useSWRMutation(
-    "expenses",
+  return useSWRMutationWithDefault(
+    "expenses/update",
     (_, { arg }: EditOptions) => {
       const { id, updates } = arg;
       return updateExpense(id, updates);
@@ -54,8 +54,7 @@ export const useEditExpense = () => {
     {
       onSuccess: (data) => {
         if (data) {
-          mutate("expenses");
-          mutate(`expenses/${data._id}`);
+          mutate((key) => Array.isArray(key) && key[0] === "expenses");
         }
       },
     }
@@ -65,12 +64,12 @@ export const useEditExpense = () => {
 // Mutation: Delete a expense
 type DeleteOptions = { arg: string };
 export const useDeleteExpense = () => {
-  return useSWRMutation(
-    "expenses",
+  return useSWRMutationWithDefault(
+    "expenses/delete",
     (_, { arg }: DeleteOptions) => deleteExpense(arg),
     {
       onSuccess: () => {
-        mutate("expenses"); // Revalidate the expenses list
+        mutate((key) => Array.isArray(key) && key[0] === "expenses");
       },
     }
   );

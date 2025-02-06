@@ -1,6 +1,6 @@
 import { endOfMonth, format, startOfMonth } from "date-fns";
 import { LucideBox } from "lucide-react";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { Card, CardContent } from "~/components/ui/card";
 import { Skeleton } from "~/components/ui/skeleton";
 import { useAppContext } from "~/contexts/app";
@@ -14,12 +14,7 @@ const RecentSection = (props: Props) => {
   const { date } = useAppContext();
   const start = startOfMonth(date).toISOString();
   const end = endOfMonth(date).toISOString();
-  const { data, mutate, isLoading } = useExpenses(start, end);
-
-  useEffect(() => {
-    mutate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [start, end]);
+  const { data, isLoading } = useExpenses(start, end);
 
   const filtered = useMemo(() => {
     if (!Array.isArray(data)) return [];
