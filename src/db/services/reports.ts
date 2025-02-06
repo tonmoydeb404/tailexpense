@@ -110,12 +110,21 @@ export const getCategoryStats = async (month: string) => {
 
   const categories = await db.getAll("categories");
 
+  categories.push({
+    name: "Uncategorized",
+    color: "#333",
+    _id: "uncategorized",
+  });
+
   const categoryExpenses: Record<string, number> = {};
 
   expenses.forEach((expense) => {
     const { category, amount } = expense;
     if (category) {
       categoryExpenses[category] = (categoryExpenses[category] || 0) + amount;
+    } else {
+      categoryExpenses["uncategorized"] =
+        (categoryExpenses["uncategorized"] || 0) + amount;
     }
   });
 
