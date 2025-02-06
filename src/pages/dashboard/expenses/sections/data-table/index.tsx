@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-table";
 
 import { endOfMonth, startOfMonth } from "date-fns";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ExpenseDeleteModal,
   ExpenseUpdateModal,
@@ -30,13 +30,8 @@ const DataTableSection = () => {
   const { currency, date } = useAppContext();
   const start = startOfMonth(date).toISOString();
   const end = endOfMonth(date).toISOString();
-  const { data, mutate } = useExpenses(start, end);
+  const { data } = useExpenses(start, end);
   const categories = useCategories();
-
-  useEffect(() => {
-    mutate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [start, end]);
 
   const expenses = useMemo(() => {
     if (!data) return [];

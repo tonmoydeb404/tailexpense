@@ -47,7 +47,7 @@ const MobileView = (props: Props) => {
                   {formatCurrency(data.amount / 100, currency)}
                 </span>
                 <span className="text-xs mt-1">
-                  {format(data.date, "yyyy-mm-dd")}
+                  {format(data.date, "dd-MM-yyyy")}
                 </span>
               </div>
               {actionsCell &&

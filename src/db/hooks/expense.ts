@@ -13,7 +13,7 @@ import { getPaginatedData } from "../utils";
 
 // Hook to fetch all expenses
 export const useExpenses = (start?: string, end?: string) => {
-  return useSWR("expenses", () => getExpenses(start, end));
+  return useSWR([`expenses`, start, end], () => getExpenses(start, end));
 };
 
 // Hook to fetch all expenses

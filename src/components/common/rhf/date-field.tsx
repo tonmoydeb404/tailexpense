@@ -1,5 +1,5 @@
+import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import moment from "moment";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { Button } from "~/components/ui/button";
@@ -48,7 +48,7 @@ export const RHFDateField = (props: Props) => {
                   )}
                 >
                   {field.value ? (
-                    moment(field.value).format("LLL")
+                    format(field.value, "MMMM d, yyyy h:mm a")
                   ) : (
                     <span>Pick a date</span>
                   )}

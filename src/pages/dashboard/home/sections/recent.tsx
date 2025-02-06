@@ -1,6 +1,5 @@
-import { endOfMonth, startOfMonth } from "date-fns";
+import { endOfMonth, format, startOfMonth } from "date-fns";
 import { LucideBox } from "lucide-react";
-import moment from "moment";
 import { useEffect, useMemo } from "react";
 import { Card, CardContent } from "~/components/ui/card";
 import { Skeleton } from "~/components/ui/skeleton";
@@ -78,7 +77,7 @@ const Item = (props: ItemProps) => {
         <div className="flex-1">
           <h2 className="text-base font-medium">{data.title || "Untitled"}</h2>
           <span className="text-sm text-muted-foreground">
-            {moment(data.date).format("DD MMM YYYY")}
+            {format(data.date, "dd MMM yyyy")}
           </span>
         </div>
 

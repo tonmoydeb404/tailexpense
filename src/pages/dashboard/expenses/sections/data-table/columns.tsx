@@ -1,4 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table";
+import { format } from "date-fns";
 import {
   ArrowDown,
   ArrowUp,
@@ -6,7 +7,6 @@ import {
   MoreHorizontal,
   MoreVertical,
 } from "lucide-react";
-import moment from "moment";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
@@ -102,7 +102,7 @@ const getColumns = (props: Props): ColumnDef<DataType>[] => {
         );
       },
       cell: ({ row }) => (
-        <div>{moment(row.getValue("date")).format("DD, MMM, YYYY")}</div>
+        <div>{format(row.getValue("date"), "dd, MMM, yyyy")}</div>
       ),
     },
     {
