@@ -16,7 +16,7 @@ import { cn } from "~/lib/utils";
 import { generalLinks, systemLinks } from "./config";
 import ThemeToggler from "./theme-toggler";
 
-const DashboardSidebar = () => {
+const LayoutSidebar = () => {
   const { theme } = useTheme();
   const { state, openMobile, openTab, setOpenMobile, setOpenTab } =
     useSidebar();
@@ -96,4 +96,4 @@ const DashboardSidebar = () => {
   );
 };
 
-export default DashboardSidebar;
+export default LayoutSidebar;
