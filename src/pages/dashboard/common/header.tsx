@@ -4,6 +4,7 @@ import Breadcrumbs, {
 } from "~/components/common/breadcrumbs";
 import { Separator } from "~/components/ui/separator";
 import { SidebarTrigger } from "~/components/ui/sidebar";
+import ThemeToggler from "./theme-toggler";
 
 type Props = {
   title: string;
@@ -27,7 +28,8 @@ const Header = (props: Props) => {
         </div>
       </div>
 
-      <div>
+      <div className="flex items-center gap-2">
+        <ThemeToggler />
         <AppDatePicker />
       </div>
     </header>
