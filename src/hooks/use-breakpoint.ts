@@ -1,10 +1,13 @@
 import { useMemo } from "react";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config";
 import useDeviceWidth from "./use-device-width";
 
-const fullConfig = resolveConfig(tailwindConfig);
-const breakpoints = fullConfig.theme.screens;
+const breakpoints = {
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
+};
 export type Breakpoint = keyof typeof breakpoints;
 
 const useBreakpoint = () => {
