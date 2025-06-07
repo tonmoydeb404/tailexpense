@@ -59,7 +59,7 @@ const PersonalInfoSection = (_props: Props) => {
             </Button>
             <Button
               size={"sm"}
-              variant={"outline"}
+              variant={"outline-solid"}
               type="reset"
               disabled={!formState.isDirty}
             >
