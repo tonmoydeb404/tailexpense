@@ -23,13 +23,13 @@ const DataManagementSection = (_props: Props) => {
             Export Data As:{" "}
           </Label>
           <div className="flex flex-1 gap-2">
-            <Button variant={"outline-solid"} size={"sm"} className="flex-1">
+            <Button variant={"outline"} size={"sm"} className="flex-1">
               CSV
             </Button>
-            <Button variant={"outline-solid"} size={"sm"} className="flex-1">
+            <Button variant={"outline"} size={"sm"} className="flex-1">
               JSON
             </Button>
-            <Button variant={"outline-solid"} size={"sm"} className="flex-1">
+            <Button variant={"outline"} size={"sm"} className="flex-1">
               PDF
             </Button>
           </div>

@@ -39,7 +39,7 @@ export const RHFColorField = (props: Props) => {
               <Button
                 type="button"
                 size={"icon"}
-                variant={"outline-solid"}
+                variant={"outline"}
                 onClick={() => field.onChange(generateRandomColor())}
               >
                 <Dices />

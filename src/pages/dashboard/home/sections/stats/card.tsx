@@ -24,7 +24,7 @@ const StatCard = (props: Props) => {
       </CardHeader>
       <CardContent className="p-4 pt-0">
         <div className="flex items-center gap-2">
-          <Badge variant={"outline-solid"}>{increment.toFixed(2)}%</Badge>
+          <Badge variant={"outline"}>{increment.toFixed(2)}%</Badge>
           <span className="text-muted-foreground text-sm">
             than a month ago
           </span>
