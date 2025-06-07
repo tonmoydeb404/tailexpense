@@ -55,7 +55,7 @@ const LayoutSidebar = () => {
                   <SidebarMenuButton
                     asChild
                     size={isSidebarOpen ? "lg" : "default"}
-                    className="text-base px-4"
+                    className="text-base px-4 "
                     onClick={closeSheet}
                   >
                     <Link to={item.url}>
