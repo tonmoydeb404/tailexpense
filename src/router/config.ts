@@ -7,4 +7,5 @@ export const paths = {
     budgets: "/dashboard/budgets",
     settings: "/dashboard/settings",
   },
+  github: "https://github.com/tonmoydeb404/tailexpense",
 };
