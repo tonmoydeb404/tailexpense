@@ -1,7 +1,7 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type { IBudget } from "~/types/budget";
 import type { ICategory } from "~/types/category";
-import type { IExpense } from "~/types/expense";
+import type { IExpense, IExpenseReminder } from "~/types/expense";
 
 // Define the database schema
 export interface AppDB extends DBSchema {
@@ -18,6 +18,11 @@ export interface AppDB extends DBSchema {
   expenses: {
     key: string;
     value: IExpense;
+    indexes: { dateIndex: string };
+  };
+  expense_reminders: {
+    key: string;
+    value: IExpenseReminder;
     indexes: { dateIndex: string };
   };
 }
@@ -48,6 +53,14 @@ export const getDB = async (): Promise<IDBPDatabase<AppDB>> => {
 
         if (!database.objectStoreNames.contains("expenses")) {
           const store = database.createObjectStore("expenses", {
+            keyPath: "_id",
+            autoIncrement: false,
+          });
+          store.createIndex("dateIndex", "date", { unique: false });
+        }
+
+        if (!database.objectStoreNames.contains("expense_reminders")) {
+          const store = database.createObjectStore("expense_reminders", {
             keyPath: "_id",
             autoIncrement: false,
           });
