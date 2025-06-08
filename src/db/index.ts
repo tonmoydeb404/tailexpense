@@ -60,6 +60,8 @@ export const getDB = async (): Promise<IDBPDatabase<AppDB>> => {
         }
 
         if (!database.objectStoreNames.contains("expense_reminders")) {
+          console.log("hello");
+
           const store = database.createObjectStore("expense_reminders", {
             keyPath: "_id",
             autoIncrement: false,

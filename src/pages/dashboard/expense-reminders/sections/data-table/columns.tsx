@@ -78,19 +78,11 @@ const getColumns = (props: Props): ColumnDef<IExpenseReminder>[] => {
       },
       cell: ({ row }) => (
         <div className="capitalize">
-          {format(row.getValue("date"), "MMMM yyyy")}
+          {format(row.getValue("date"), "dd MMMM yyyy")}
         </div>
       ),
     },
-    {
-      accessorKey: "isRecurring",
-      header: "Recurring",
-      cell: ({ row }) => (
-        <div className="capitalize">
-          <Checkbox defaultChecked={row.original.isRecurring} />
-        </div>
-      ),
-    },
+
     {
       accessorKey: "amount",
       header: ({ column }) => {
@@ -118,10 +110,19 @@ const getColumns = (props: Props): ColumnDef<IExpenseReminder>[] => {
       },
     },
     {
+      accessorKey: "isRecurring",
+      header: "Recurring",
+      cell: ({ row }) => (
+        <div className="capitalize">
+          <Checkbox defaultChecked={row.original.isRecurring} />
+        </div>
+      ),
+    },
+    {
       id: "actions",
       enableHiding: false,
       cell: ({ row }) => {
-        const budget = row.original;
+        const entity = row.original;
 
         return (
           <DropdownMenu>
@@ -135,15 +136,15 @@ const getColumns = (props: Props): ColumnDef<IExpenseReminder>[] => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(budget._id)}
+                onClick={() => navigator.clipboard.writeText(entity._id)}
               >
-                Copy budget ID
+                Copy ID
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => onUpdate(budget)}>
+              <DropdownMenuItem onClick={() => onUpdate(entity)}>
                 Update Details
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onDelete(budget._id)}>
+              <DropdownMenuItem onClick={() => onDelete(entity._id)}>
                 Delete
               </DropdownMenuItem>
             </DropdownMenuContent>
