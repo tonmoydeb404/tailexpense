@@ -1,3 +1,4 @@
+import { setMonth, setYear, startOfMonth } from "date-fns";
 import { nanoid } from "nanoid";
 import type { IBudget } from "~/types/budget";
 import type { ICategory } from "~/types/category";
@@ -20,6 +21,10 @@ export const seedData = async () => {
   const expenseData: IExpense[] = expenses.map((item) => ({
     ...item,
     _id: nanoid(),
+    date: setYear(
+      setMonth(item.date, new Date().getMonth()),
+      new Date().getFullYear()
+    ).toISOString(),
     category:
       categoriesData[Math.floor(Math.random() * categoriesData.length)]._id,
   }));
@@ -30,6 +35,9 @@ export const seedData = async () => {
 
   const budgetsData: IBudget[] = budgets.map((item) => ({
     ...item,
+    month: startOfMonth(
+      setYear(item.month, new Date().getFullYear())
+    ).toISOString(),
     _id: nanoid(),
   }));
 
