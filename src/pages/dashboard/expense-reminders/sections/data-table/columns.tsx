@@ -7,6 +7,7 @@ import {
   MoreHorizontal,
   MoreVertical,
 } from "lucide-react";
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import {
@@ -115,6 +116,21 @@ const getColumns = (props: Props): ColumnDef<IExpenseReminder>[] => {
       cell: ({ row }) => (
         <div className="capitalize">
           <Checkbox defaultChecked={row.original.isRecurring} />
+        </div>
+      ),
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <div className="capitalize">
+          <Badge
+            variant={
+              row.original.status === "COMPLETED" ? "default" : "outline"
+            }
+          >
+            {row.original.status === "COMPLETED" ? "PAID" : "UNPAID"}
+          </Badge>
         </div>
       ),
     },
