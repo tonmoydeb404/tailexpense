@@ -1,7 +1,7 @@
 import { flexRender } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { Badge } from "~/components/ui/badge";
-import { Card, CardTitle } from "~/components/ui/card";
+import { Card, CardDescription, CardTitle } from "~/components/ui/card";
 import { useAppContext } from "~/contexts/app";
 import { formatCurrency } from "~/utils/currency";
 import type { TableType } from "./types";
@@ -23,12 +23,24 @@ const MobileView = (props: Props) => {
           return (
             <Card key={row.id} className="p-4 flex gap-3 items-center">
               <div className="flex flex-col">
-                <CardTitle className="text-base font-medium mb-2">
-                  {format(data.date, "MMMM yyyy")}
+                <CardTitle className="text-base font-medium mb-0">
+                  {data.title}
                 </CardTitle>
-                <Badge className="w-fit">
-                  {formatCurrency(data.amount / 100, currency)}
-                </Badge>
+                <CardDescription className="text-sm mb-2">
+                  {format(data.date, "dd MMMM yyyy")}
+                </CardDescription>
+                <div className="w-fit flex items-center gap-1 ">
+                  <Badge
+                    variant={
+                      data.status === "COMPLETED" ? "default" : "outline"
+                    }
+                  >
+                    {data.status === "COMPLETED" ? "PAID" : "UNPAID"}
+                  </Badge>
+                  <Badge variant={"secondary"}>
+                    {formatCurrency(data.amount / 100, currency)}
+                  </Badge>
+                </div>
               </div>
               <div className="ml-auto"></div>
               {actionsCell &&
