@@ -12,7 +12,7 @@ const App = (_props: Props) => {
       <ThemeProvider>
         <AppContextProvider>
           <RouterProvider router={routes} />
-          <Toaster />
+          <Toaster position="top-right" />
         </AppContextProvider>
       </ThemeProvider>
     </>
