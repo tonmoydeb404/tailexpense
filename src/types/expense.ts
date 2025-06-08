@@ -5,3 +5,13 @@ export interface IExpense {
   category: string | null; // (ref to category collection)
   date: string; // (ISO)
 }
+
+export interface IExpenseReminder {
+  _id: string;
+  title: string;
+  amount: number;
+  category: string | null; // ref to category collection
+  isRecurring: boolean;
+  date: string;
+  status: "ACTIVE" | "COMPLETED";
+}

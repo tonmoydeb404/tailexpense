@@ -16,6 +16,8 @@ const SeedData = (_props: Props) => {
 
       toast.success("Seeding Complete!", { id: toastId });
     } catch (error) {
+      console.log({ error });
+
       toast.error("Seeding failed!", { id: toastId });
     } finally {
       setIsLoading(false);

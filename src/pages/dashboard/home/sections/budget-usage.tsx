@@ -13,11 +13,11 @@ import { useYearlyStats } from "~/db/hooks";
 const chartConfig: ChartConfig = {
   budget: {
     label: "Budget",
-    color: "hsl(var(--chart-2))",
+    color: "var(--chart-3)",
   },
   expense: {
     label: "Expense",
-    color: "hsl(var(--chart-1))",
+    color: "var(--destructive)",
   },
 };
 

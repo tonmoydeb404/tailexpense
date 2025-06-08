@@ -10,15 +10,15 @@ export function generateColorObject(
   def?: string
 ): Record<string, string> {
   const result: Record<string, string> = {
-    "50": `hsl(var(--${key}-50))`,
+    "50": `var(--${key}-50)`,
   };
 
   if (def) {
-    result.DEFAULT = `hsl(var(--${key}-${def}))`;
+    result.DEFAULT = `var(--${key}-${def})`;
   }
 
   for (let i = 100; i <= 900; i += 100) {
-    result[`${i}`] = `hsl(var(--${key}-${i}))`;
+    result[`${i}`] = `var(--${key}-${i})`;
   }
   return result;
 }

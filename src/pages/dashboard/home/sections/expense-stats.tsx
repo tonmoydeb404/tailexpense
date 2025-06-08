@@ -29,7 +29,7 @@ import { formatCurrency } from "~/utils/currency";
 const chartConfig = {
   amount: {
     label: "Expense ",
-    color: "hsl(var(--chart-5))",
+    color: "var(--chart-5)",
   },
 } satisfies ChartConfig;
 
