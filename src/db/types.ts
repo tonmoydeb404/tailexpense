@@ -11,5 +11,5 @@ export type CategoryUpdate = Partial<Omit<ICategory, "_id">>;
 export type BudgetCreate = Omit<IBudget, "_id">;
 export type BudgetUpdate = Partial<Omit<IBudget, "_id" | "month">>;
 
-export type ExpenseReminderCreate = Omit<IExpenseReminder, "_id">;
+export type ExpenseReminderCreate = Omit<IExpenseReminder, "_id" | "status">;
 export type ExpenseReminderUpdate = Partial<Omit<IExpenseReminder, "_id">>;

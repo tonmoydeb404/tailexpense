@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import DashboardLayout from "~/components/layouts/dashboard";
 import DashboardBudgetsPage from "~/pages/dashboard/budgets";
 import DashboardCategoriesPage from "~/pages/dashboard/categories";
+import DashboardExpenseRemindersPage from "~/pages/dashboard/expense-reminders";
 import DashboardExpensesPage from "~/pages/dashboard/expenses";
 import DashboardHomePage from "~/pages/dashboard/home";
 import DashboardSettingsPage from "~/pages/dashboard/settings";
@@ -31,6 +32,11 @@ const routes = createBrowserRouter([
       {
         path: "budgets",
         element: <DashboardBudgetsPage />,
+      },
+
+      {
+        path: "reminders",
+        element: <DashboardExpenseRemindersPage />,
       },
       {
         path: "settings",

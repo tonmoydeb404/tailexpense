@@ -1,5 +1,6 @@
 import {
   ArrowRightLeft,
+  Bell,
   Landmark,
   LayoutDashboard,
   Settings,
@@ -22,6 +23,11 @@ export const generalLinks = [
     title: "Categories",
     url: paths.dashboard.categories,
     icon: Tag,
+  },
+  {
+    title: "Reminders",
+    url: paths.dashboard.reminders,
+    icon: Bell,
   },
   {
     title: "Budgets",

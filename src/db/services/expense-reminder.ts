@@ -10,6 +10,7 @@ export const createExpenseReminder = async (item: ExpenseReminderCreate) => {
     ...item,
     _id: nanoid(),
     date: formatISO(startOfDay(item.date)),
+    status: "ACTIVE",
   });
 };
 

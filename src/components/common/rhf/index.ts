@@ -1,3 +1,4 @@
+export * from "./checkbox-field";
 export * from "./color-field";
 export * from "./combo-field";
 export * from "./date-field";

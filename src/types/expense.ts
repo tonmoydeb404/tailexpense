@@ -11,7 +11,7 @@ export interface IExpenseReminder {
   title: string;
   amount: number;
   category: string | null; // ref to category collection
-  isRecurring: string;
+  isRecurring: boolean;
   date: string;
   status: "ACTIVE" | "COMPLETED";
 }
