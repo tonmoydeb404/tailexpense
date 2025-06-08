@@ -1,3 +1,4 @@
+import { useSyncExpenseReminder } from "~/db/hooks";
 import { paths } from "~/router/config";
 import Header from "../common/header";
 import DataTableSection from "./sections/data-table";
@@ -5,6 +6,8 @@ import DataTableSection from "./sections/data-table";
 type Props = {};
 
 const DashboardExpenseRemindersPage = (props: Props) => {
+  useSyncExpenseReminder();
+
   return (
     <>
       <title>Expense Reminder - TailExpenese</title>
