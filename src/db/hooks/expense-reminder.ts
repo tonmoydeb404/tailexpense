@@ -1,10 +1,12 @@
 import useSWR, { mutate } from "swr";
 import useSWRMutation from "swr/mutation";
 import {
+  completeExpenseReminder,
   createExpenseReminder,
   deleteExpenseReminder,
   getExpenseReminderById,
   getExpenseReminders,
+  syncExpenseReminder,
   updateExpenseReminder,
 } from "../services/expense-reminder";
 import type { ExpenseReminderCreate, ExpenseReminderUpdate } from "../types";
@@ -51,7 +53,7 @@ export const useEditExpenseReminder = () => {
 type DeleteOptions = { arg: string };
 export const useDeleteExpenseReminder = () => {
   return useSWRMutation(
-    "budgets",
+    "expense-reminders",
     (_, { arg }: DeleteOptions) => deleteExpenseReminder(arg),
     {
       onSuccess: () => {
@@ -59,4 +61,27 @@ export const useDeleteExpenseReminder = () => {
       },
     }
   );
+};
+
+type CompleteOptions = { arg: string };
+export const useCompleteExpenseReminder = () => {
+  return useSWRMutation(
+    "expense-reminders",
+    (_, { arg }: CompleteOptions) => completeExpenseReminder(arg),
+    {
+      onSuccess: () => {
+        mutate("expense-reminders");
+      },
+    }
+  );
+};
+
+export const useSyncExpenseReminder = () => {
+  return useSWR("expense-reminders", () => syncExpenseReminder(), {
+    onSuccess: (data) => {
+      if (data.length) {
+        mutate("expense-reminders");
+      }
+    },
+  });
 };

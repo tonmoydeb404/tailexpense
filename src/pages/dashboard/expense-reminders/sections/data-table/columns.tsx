@@ -23,12 +23,13 @@ import { formatCurrency } from "~/utils/currency";
 
 type Props = {
   onDelete: (id: string) => void;
+  onComplete: (id: string) => void;
   onUpdate: (data: IExpenseReminder) => void;
   currency: string | null;
 };
 
 const getColumns = (props: Props): ColumnDef<IExpenseReminder>[] => {
-  const { onDelete, onUpdate, currency } = props;
+  const { onDelete, onUpdate, currency, onComplete } = props;
   return [
     {
       id: "select",
@@ -157,6 +158,9 @@ const getColumns = (props: Props): ColumnDef<IExpenseReminder>[] => {
                 Copy ID
               </DropdownMenuItem>
               <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => onComplete(entity._id)}>
+                Complete
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onUpdate(entity)}>
                 Update Details
               </DropdownMenuItem>

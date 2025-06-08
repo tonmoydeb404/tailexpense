@@ -1,4 +1,4 @@
-import { formatISO, startOfDay } from "date-fns";
+import { addMonths, formatISO, startOfDay, startOfMonth } from "date-fns";
 import { nanoid } from "nanoid";
 import { getDB } from "..";
 import { ExpenseReminderCreate, ExpenseReminderUpdate } from "../types";
@@ -27,20 +27,24 @@ export const getExpenseReminders = async (start?: string, end?: string) => {
       ? IDBKeyRange.upperBound(end, false)
       : null;
 
-  let budgets;
+  let entities;
 
   if (range) {
-    budgets = await db.getAllFromIndex("expense_reminders", "dateIndex", range);
+    entities = await db.getAllFromIndex(
+      "expense_reminders",
+      "dateIndex",
+      range
+    );
   } else {
-    budgets = await db.getAll("expense_reminders");
+    entities = await db.getAll("expense_reminders");
   }
 
   // Sort by date in descending order (newest first)
-  budgets.sort(
+  entities.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  return budgets;
+  return entities;
 };
 
 export const getExpenseReminderById = async (id: string) => {
@@ -90,4 +94,32 @@ export const completeExpenseReminder = async (id: string) => {
   await db.put("expense_reminders", entity);
 
   return entity;
+};
+
+export const syncExpenseReminder = async () => {
+  const db = await getDB();
+
+  const end = startOfMonth(new Date());
+  const range = IDBKeyRange.upperBound(end, false);
+
+  const entities = await db.getAllFromIndex(
+    "expense_reminders",
+    "dateIndex",
+    range
+  );
+  const validEntities = entities.filter((item) => item.isRecurring === true);
+
+  for (const item of validEntities) {
+    if (!item.date || isNaN(Date.parse(item.date))) continue;
+
+    const date = addMonths(new Date(item.date), 1).toISOString();
+
+    await db.put("expense_reminders", {
+      ...item,
+      date,
+      status: "ACTIVE",
+    });
+  }
+
+  return validEntities;
 };

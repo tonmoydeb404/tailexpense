@@ -11,8 +11,11 @@ import {
 
 import { endOfMonth, startOfMonth } from "date-fns";
 import { useState } from "react";
-import { BudgetDeleteModal } from "~/components/modals/budget";
-import { ReminderUpdateModal } from "~/components/modals/expense-reminder";
+import {
+  ReminderCompleteModal,
+  ReminderDeleteModal,
+  ReminderUpdateModal,
+} from "~/components/modals/expense-reminder";
 import { useAppContext } from "~/contexts/app";
 import { useExpenseReminders } from "~/db/hooks";
 import useModal from "~/hooks/use-modal";
@@ -31,6 +34,7 @@ const DataTableSection = () => {
   const { data, mutate } = useExpenseReminders(start, end);
 
   const deleteModal = useModal<string>();
+  const completeModal = useModal<string>();
   const updateModal = useModal<IExpenseReminder>();
 
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -40,6 +44,7 @@ const DataTableSection = () => {
   const columns = getColumns({
     onDelete: deleteModal.openModal,
     onUpdate: updateModal.openModal,
+    onComplete: completeModal.openModal,
     currency,
   });
 
@@ -75,9 +80,13 @@ const DataTableSection = () => {
         data={updateModal.data}
         onClose={updateModal.closeModal}
       />
-      <BudgetDeleteModal
+      <ReminderDeleteModal
         data={deleteModal.data}
         onClose={deleteModal.closeModal}
+      />
+      <ReminderCompleteModal
+        data={completeModal.data}
+        onClose={completeModal.closeModal}
       />
     </div>
   );
