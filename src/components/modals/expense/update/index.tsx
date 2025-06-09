@@ -3,15 +3,8 @@ import { useEffect, useMemo } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "~/components/ui/dialog";
 import { Form } from "~/components/ui/form";
+import { ResponsiveModal } from "~/components/ui/responsive-modal";
 import { useEditExpense } from "~/db/hooks/expense";
 import type { IExpense } from "~/types/expense";
 import Fields from "./fields";
@@ -72,25 +65,23 @@ export const ExpenseUpdateModal = (props: Props) => {
   }, [defaultValues]);
 
   return (
-    <Dialog open={!!data} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Update Transaction</DialogTitle>
-          <DialogDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </DialogDescription>
-        </DialogHeader>
-        <Form {...formOptions}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Fields />
-            <DialogFooter>
-              <Button type="submit" disabled={isMutating}>
-                Update
-              </Button>
-            </DialogFooter>
-          </form>
-        </Form>
-      </DialogContent>
-    </Dialog>
+    <ResponsiveModal
+      title="Update Transaction"
+      description="Complete the form to update a new transaction."
+      contentProps={{ className: "md:max-w-[425px]" }}
+      open={!!data}
+      onOpenChange={() => onClose()}
+      footer={
+        <Button type="submit" disabled={isMutating}>
+          Create
+        </Button>
+      }
+    >
+      <Form {...formOptions}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Fields />
+        </form>
+      </Form>
+    </ResponsiveModal>
   );
 };

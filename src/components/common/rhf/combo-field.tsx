@@ -18,11 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "~/components/ui/form";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "~/components/ui/popover";
+import { ResponsivePopover } from "~/components/ui/responsive-popover";
 import { cn } from "~/lib/utils";
 
 type Option = {
@@ -60,8 +56,11 @@ export const RHFComboField = (props: Props) => {
       render={({ field }) => (
         <FormItem className="flex flex-col">
           {label && <FormLabel>{label}</FormLabel>}
-          <Popover onOpenChange={setOpen} open={open}>
-            <PopoverTrigger asChild>
+
+          <ResponsivePopover
+            open={open}
+            onOpenChange={setOpen}
+            trigger={
               <FormControl>
                 <Button
                   variant="outline"
@@ -70,44 +69,48 @@ export const RHFComboField = (props: Props) => {
                     "justify-between",
                     !field.value && "text-muted-foreground"
                   )}
+                  onClick={() => setOpen(true)}
+                  type="button"
                 >
                   {options.find((item) => item.value === field.value)?.label ||
                     placeholder}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </FormControl>
-            </PopoverTrigger>
-            <PopoverContent className="p-0">
-              <Command>
-                <CommandInput placeholder={queryPlaceholder} />
-                <CommandList>
-                  <CommandEmpty>{emptyPlaceholder}</CommandEmpty>
-                  <CommandGroup>
-                    {options.map((item) => (
-                      <CommandItem
-                        value={item.label}
-                        key={item.value}
-                        onSelect={() => {
-                          field.onChange(item.value);
-                          setOpen(false);
-                        }}
-                      >
-                        {item.label}
-                        <Check
-                          className={cn(
-                            "ml-auto",
-                            item.value === field.value
-                              ? "opacity-100"
-                              : "opacity-0"
-                          )}
-                        />
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
+            }
+            contentProps={{ className: "p-0" }}
+            triggerProps={{ asChild: true }}
+          >
+            <Command>
+              <CommandInput placeholder={queryPlaceholder} />
+              <CommandList>
+                <CommandEmpty>{emptyPlaceholder}</CommandEmpty>
+                <CommandGroup>
+                  {options.map((item) => (
+                    <CommandItem
+                      value={item.label}
+                      key={item.value}
+                      onSelect={() => {
+                        field.onChange(item.value);
+                        setOpen(false);
+                      }}
+                    >
+                      {item.label}
+                      <Check
+                        className={cn(
+                          "ml-auto",
+                          item.value === field.value
+                            ? "opacity-100"
+                            : "opacity-0"
+                        )}
+                      />
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </ResponsivePopover>
+
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>

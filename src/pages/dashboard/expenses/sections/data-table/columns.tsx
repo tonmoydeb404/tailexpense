@@ -10,14 +10,7 @@ import {
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+import { ResponsiveDropdown } from "~/components/ui/responsive-dropdown";
 import type { IExpense } from "~/types/expense";
 import { getForegroundColor } from "~/utils/color";
 import { formatCurrency } from "~/utils/currency";
@@ -146,37 +139,44 @@ const getColumns = (props: Props): ColumnDef<DataType>[] => {
         const transaction = row.original;
 
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size={"icon"} className="size-8">
+          <ResponsiveDropdown
+            contentProps={{ align: "end" }}
+            trigger={
+              <Button variant="ghost" size="icon" className="size-8">
                 <span className="sr-only">Open menu</span>
                 <MoreHorizontal className="max-md:hidden" />
                 <MoreVertical className="md:hidden" />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(transaction._id)}
-              >
-                Copy transaction ID
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() =>
-                  onUpdate({
-                    ...transaction,
-                    category: transaction.category?._id ?? null,
-                  })
-                }
-              >
-                Update Details
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onDelete(transaction._id)}>
-                Delete
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            }
+            triggerProps={{ asChild: true }}
+            options={[
+              { type: "Label", label: "Actions" },
+              {
+                type: "Item",
+                label: "Copy transaction ID",
+                props: {
+                  onClick: () => navigator.clipboard.writeText(transaction._id),
+                },
+              },
+              { type: "Separator", label: "" },
+              {
+                type: "Item",
+                label: "Update Details",
+                props: {
+                  onClick: () =>
+                    onUpdate({
+                      ...transaction,
+                      category: transaction.category?._id ?? null,
+                    }),
+                },
+              },
+              {
+                type: "Item",
+                label: "Delete",
+                props: { onClick: () => onDelete(transaction._id) },
+              },
+            ]}
+          />
         );
       },
     },
