@@ -51,7 +51,7 @@ export const ExpenseCreateModal = () => {
       <ResponsiveModal
         title="New Transaction"
         description="Complete the form to create a new transaction."
-        contentProps={{ className: "sm:max-w-[425px]" }}
+        contentProps={{ className: "md:max-w-[425px]" }}
         open={modal}
         onOpenChange={setModal}
       >
