@@ -50,7 +50,7 @@ export const ExpenseCreateModal = () => {
       </Button>
       <ResponsiveModal
         title="New Transaction"
-        description=""
+        description="Complete the form to create a new transaction."
         contentProps={{ className: "sm:max-w-[425px]" }}
         open={modal}
         onOpenChange={setModal}
