@@ -3,16 +3,9 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "~/components/ui/dialog";
+import { DialogFooter } from "~/components/ui/dialog";
 import { Form } from "~/components/ui/form";
+import { ResponsiveModal } from "~/components/ui/responsive-modal";
 import { useAddExpense } from "~/db/hooks/expense";
 import Fields from "./fields";
 import { Schema, type SchemaType } from "./schema";
@@ -51,17 +44,17 @@ export const ExpenseCreateModal = () => {
   };
 
   return (
-    <Dialog open={modal} onOpenChange={setModal}>
-      <DialogTrigger asChild>
-        <Button variant="secondary">Add New</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>New Transaction</DialogTitle>
-          <DialogDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </DialogDescription>
-        </DialogHeader>
+    <>
+      <Button variant="secondary" onClick={() => setModal(true)}>
+        Add New
+      </Button>
+      <ResponsiveModal
+        title="New Transaction"
+        description=""
+        contentProps={{ className: "sm:max-w-[425px]" }}
+        open={modal}
+        onOpenChange={setModal}
+      >
         <Form {...formOptions}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Fields />
@@ -72,7 +65,7 @@ export const ExpenseCreateModal = () => {
             </DialogFooter>
           </form>
         </Form>
-      </DialogContent>
-    </Dialog>
+      </ResponsiveModal>
+    </>
   );
 };
