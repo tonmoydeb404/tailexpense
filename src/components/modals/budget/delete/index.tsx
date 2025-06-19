@@ -1,14 +1,6 @@
 import { toast } from "sonner";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "~/components/ui/alert-dialog";
+import { Button } from "~/components/ui/button";
+import { ResponsiveModal } from "~/components/ui/responsive-modal";
 import { useDeleteBudget } from "~/db/hooks";
 
 type Props = {
@@ -34,24 +26,27 @@ export const BudgetDeleteModal = (props: Props) => {
   };
 
   return (
-    <AlertDialog open={!!data} onOpenChange={onClose}>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            selected budget.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel disabled={isMutating} onClick={onClose}>
-            Cancel
-          </AlertDialogCancel>
-          <AlertDialogAction disabled={isMutating} onClick={onConfirm}>
+    <>
+      <ResponsiveModal
+        title="Are you absolutely sure?"
+        description="This action cannot be undone. This will permanently delete your selected budget."
+        contentProps={{ className: "md:max-w-[425px]" }}
+        open={!!data}
+        onOpenChange={onClose}
+      >
+        <div className="flex flex-col gap-1 md:flex-row-reverse w-full">
+          <Button
+            disabled={isMutating}
+            onClick={onConfirm}
+            variant={"destructive"}
+          >
             Confirm
-          </AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+          </Button>
+          <Button disabled={isMutating} onClick={onClose} variant={"secondary"}>
+            Cancel
+          </Button>
+        </div>
+      </ResponsiveModal>
+    </>
   );
 };

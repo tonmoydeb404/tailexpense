@@ -3,15 +3,8 @@ import { useEffect, useMemo } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "~/components/ui/dialog";
 import { Form } from "~/components/ui/form";
+import { ResponsiveModal } from "~/components/ui/responsive-modal";
 import { useEditBudget } from "~/db/hooks";
 import type { IBudget } from "~/types/budget";
 import Fields from "./fields";
@@ -66,25 +59,27 @@ export const BudgetUpdateModal = (props: Props) => {
   }, [defaultValues]);
 
   return (
-    <Dialog open={!!data} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Update Budget</DialogTitle>
-          <DialogDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </DialogDescription>
-        </DialogHeader>
-        <Form {...formOptions}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Fields />
-            <DialogFooter>
-              <Button type="submit" disabled={isMutating}>
-                Update
-              </Button>
-            </DialogFooter>
-          </form>
-        </Form>
-      </DialogContent>
-    </Dialog>
+    <ResponsiveModal
+      title="Update Budget"
+      description=""
+      contentProps={{ className: "md:max-w-[425px]" }}
+      open={!!data}
+      onOpenChange={onClose}
+    >
+      <Form {...formOptions}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Fields />
+          <div className="text-right">
+            <Button
+              className="w-full md:w-auto"
+              type="submit"
+              disabled={isMutating}
+            >
+              Update
+            </Button>
+          </div>
+        </form>
+      </Form>
+    </ResponsiveModal>
   );
 };
