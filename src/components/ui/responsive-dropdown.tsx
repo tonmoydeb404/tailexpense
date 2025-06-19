@@ -4,14 +4,13 @@ import {
 } from "@radix-ui/react-dialog";
 import {
   DropdownMenuContentProps,
-  DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuProps,
-  DropdownMenuSeparator,
   DropdownMenuTriggerProps,
 } from "@radix-ui/react-dropdown-menu";
 import React, { ReactNode } from "react";
 import useMediaQuery from "~/hooks/use-media-query";
+import { cn } from "~/lib/utils";
+import { Button } from "./button";
 import {
   Drawer,
   DrawerContent,
@@ -24,6 +23,9 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./dropdown-menu";
 
@@ -42,7 +44,7 @@ export type ResponsiveDropdownProps = {
   trigger?: ReactNode;
 
   /** instead of children you can pass a list of options */
-  options?: Option[];
+  options: Option[];
 
   contentProps?: DropdownMenuContentProps;
   headerProps?: React.HTMLAttributes<HTMLDivElement>;
@@ -65,7 +67,6 @@ export function ResponsiveDropdown(props: ResponsiveDropdownProps) {
     footerProps,
     contentProps,
     options,
-    children,
     ...menuProps
   } = props;
 
@@ -99,30 +100,27 @@ export function ResponsiveDropdown(props: ResponsiveDropdownProps) {
             <div
               key={idx}
               {...opt.props}
-              className={
-                // preserve any passed-in className
-                `px-4 pt-4 pb-2 text-sm font-medium ${
-                  opt.props?.className || ""
-                }`
-              }
+              className={cn(
+                "text-sm opacity-60 text-center",
+                opt.props?.className
+              )}
             >
               {opt.label}
             </div>
           );
         case "Separator":
-          return <hr key={idx} {...opt.props} />;
+          return null;
         case "Item":
           return (
-            <button
+            <Button
+              variant={"outline"}
               key={idx}
               type="button"
               {...opt.props}
-              className={`w-full text-left px-4 py-2 text-base ${
-                opt.props?.className || ""
-              }`}
+              className={cn("w-full", opt.props?.className)}
             >
               {opt.label}
-            </button>
+            </Button>
           );
       }
     });
@@ -134,7 +132,7 @@ export function ResponsiveDropdown(props: ResponsiveDropdownProps) {
           <DropdownMenuTrigger {...triggerProps}>{trigger}</DropdownMenuTrigger>
         )}
         <DropdownMenuContent {...contentProps}>
-          {options ? renderDesktopOptions() : children}
+          {renderDesktopOptions()}
         </DropdownMenuContent>
       </DropdownMenu>
     );
@@ -153,9 +151,7 @@ export function ResponsiveDropdown(props: ResponsiveDropdownProps) {
           )}
         </DrawerHeader>
 
-        <div className="px-4 pb-6">
-          {options ? renderMobileOptions() : children}
-        </div>
+        <div className="px-4 pb-6 space-y-2">{renderMobileOptions()}</div>
 
         {footer && <DrawerFooter {...footerProps}>{footer}</DrawerFooter>}
       </DrawerContent>
