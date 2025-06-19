@@ -15,7 +15,7 @@ import {
   ReminderCompleteModal,
   ReminderDeleteModal,
   ReminderUpdateModal,
-} from "~/components/modals/expense-reminder";
+} from "~/components/modals/reminders";
 import { useAppContext } from "~/contexts/app";
 import { useExpenseReminders } from "~/db/hooks";
 import useModal from "~/hooks/use-modal";
