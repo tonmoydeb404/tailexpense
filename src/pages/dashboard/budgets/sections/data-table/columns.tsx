@@ -9,14 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+import { ResponsiveDropdown } from "~/components/ui/responsive-dropdown";
 import type { IBudget } from "~/types/budget";
 import { formatCurrency } from "~/utils/currency";
 
@@ -111,30 +104,36 @@ const getColumns = (props: Props): ColumnDef<IBudget>[] => {
         const budget = row.original;
 
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size={"icon"} className="size-8">
+          <ResponsiveDropdown
+            contentProps={{ align: "end" }}
+            trigger={
+              <Button variant="ghost" size="icon" className="size-8">
                 <span className="sr-only">Open menu</span>
                 <MoreHorizontal className="max-md:hidden" />
                 <MoreVertical className="md:hidden" />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(budget._id)}
-              >
-                Copy budget ID
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => onUpdate(budget)}>
-                Update Details
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => onDelete(budget._id)}>
-                Delete
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            }
+            triggerProps={{ asChild: true }}
+            options={[
+              { type: "Label", label: "Actions" },
+              { type: "Separator", label: "" },
+              {
+                type: "Item",
+                label: "Update Details",
+                props: {
+                  onClick: () => onUpdate({ ...budget }),
+                },
+              },
+              {
+                type: "Item",
+                label: "Delete",
+                props: {
+                  onClick: () => onDelete(budget._id),
+                  variant: "destructive",
+                },
+              },
+            ]}
+          />
         );
       },
     },

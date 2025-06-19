@@ -1,26 +1,26 @@
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
 import { ResponsiveModal } from "~/components/ui/responsive-modal";
-import { useDeleteCategory } from "~/db/hooks";
+import { useDeleteExpenseReminder } from "~/db/hooks";
 
 type Props = {
   data: string | null;
   onClose: () => void;
 };
 
-export const CategoryDeleteModal = (props: Props) => {
+export const ReminderDeleteModal = (props: Props) => {
   const { data, onClose } = props;
-  const { trigger, isMutating } = useDeleteCategory();
+  const { trigger, isMutating } = useDeleteExpenseReminder();
 
   const onConfirm = () => {
     if (!data) return;
     trigger(data, {
       onSuccess: () => {
-        toast.success("Category deleted successfully");
+        toast.success("Reminder deleted successfully");
         onClose();
       },
       onError: () => {
-        toast.error("Failed to delete category");
+        toast.error("Failed to delete reminder");
       },
     });
   };
@@ -28,7 +28,7 @@ export const CategoryDeleteModal = (props: Props) => {
   return (
     <ResponsiveModal
       title="Are you absolutely sure?"
-      description="This action cannot be undone. This will permanently delete your selected category."
+      description="This action cannot be undone. This will permanently delete your selected reminder."
       contentProps={{ className: "md:max-w-[425px]" }}
       open={!!data}
       onOpenChange={onClose}

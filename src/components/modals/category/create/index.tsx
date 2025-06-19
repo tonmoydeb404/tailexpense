@@ -3,28 +3,22 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "~/components/ui/dialog";
 import { Form } from "~/components/ui/form";
+import { ResponsiveModal } from "~/components/ui/responsive-modal";
 import { useAddCategory } from "~/db/hooks";
+import { generateRandomColor } from "~/utils/color";
 import Fields from "./fields";
 import { Schema, type SchemaType } from "./schema";
-
-const defaultValues: SchemaType = {
-  name: "",
-  color: "",
-};
 
 export const CategoryCreateModal = () => {
   const [modal, setModal] = useState(false);
   const { trigger, isMutating } = useAddCategory();
+
+  const defaultValues: SchemaType = {
+    name: "",
+    color: generateRandomColor(),
+  };
+
   const formOptions = useForm({ defaultValues, resolver: zodResolver(Schema) });
   const { handleSubmit, reset } = formOptions;
 
@@ -47,28 +41,32 @@ export const CategoryCreateModal = () => {
   };
 
   return (
-    <Dialog open={modal} onOpenChange={setModal}>
-      <DialogTrigger asChild>
-        <Button variant="secondary">Add New</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>New Category</DialogTitle>
-          <DialogDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </DialogDescription>
-        </DialogHeader>
+    <>
+      <Button variant="secondary" onClick={() => setModal(true)}>
+        Add New
+      </Button>
+      <ResponsiveModal
+        title="New Category"
+        description=""
+        contentProps={{ className: "md:max-w-[425px]" }}
+        open={modal}
+        onOpenChange={setModal}
+      >
         <Form {...formOptions}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Fields />
-            <DialogFooter>
-              <Button type="submit" disabled={isMutating}>
+            <div className="text-right">
+              <Button
+                type="submit"
+                disabled={isMutating}
+                className="w-full md:w-auto"
+              >
                 Create
               </Button>
-            </DialogFooter>
+            </div>
           </form>
         </Form>
-      </DialogContent>
-    </Dialog>
+      </ResponsiveModal>
+    </>
   );
 };

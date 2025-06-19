@@ -10,9 +10,9 @@ const DashboardExpenseRemindersPage = (props: Props) => {
 
   return (
     <>
-      <title>Expense Reminder - TailExpenese</title>
+      <title>Reminders - TailExpenese</title>
       <Header
-        title="Expense Reminders"
+        title="Reminders"
         links={[
           { title: "Home", href: paths.dashboard.root },
           { title: "Reminders", href: paths.dashboard.reminders },

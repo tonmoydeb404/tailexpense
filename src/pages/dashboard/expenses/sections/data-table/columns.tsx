@@ -151,13 +151,6 @@ const getColumns = (props: Props): ColumnDef<DataType>[] => {
             triggerProps={{ asChild: true }}
             options={[
               { type: "Label", label: "Actions" },
-              {
-                type: "Item",
-                label: "Copy transaction ID",
-                props: {
-                  onClick: () => navigator.clipboard.writeText(transaction._id),
-                },
-              },
               { type: "Separator", label: "" },
               {
                 type: "Item",
@@ -173,7 +166,10 @@ const getColumns = (props: Props): ColumnDef<DataType>[] => {
               {
                 type: "Item",
                 label: "Delete",
-                props: { onClick: () => onDelete(transaction._id) },
+                props: {
+                  onClick: () => onDelete(transaction._id),
+                  variant: "destructive",
+                },
               },
             ]}
           />

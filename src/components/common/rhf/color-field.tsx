@@ -32,7 +32,7 @@ export const RHFColorField = (props: Props) => {
           <FormControl>
             <div className="flex items-center gap-2">
               <div
-                className="size-8 rounded shrink-0"
+                className="size-9 rounded shrink-0 border"
                 style={{ backgroundColor: field.value }}
               />
               <Input {...field} {...others} className="flex-1" />

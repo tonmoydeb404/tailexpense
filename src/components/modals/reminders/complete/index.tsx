@@ -1,44 +1,40 @@
 import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
 import { ResponsiveModal } from "~/components/ui/responsive-modal";
-import { useDeleteCategory } from "~/db/hooks";
+import { useCompleteExpenseReminder } from "~/db/hooks";
 
 type Props = {
   data: string | null;
   onClose: () => void;
 };
 
-export const CategoryDeleteModal = (props: Props) => {
+export const ReminderCompleteModal = (props: Props) => {
   const { data, onClose } = props;
-  const { trigger, isMutating } = useDeleteCategory();
+  const { trigger, isMutating } = useCompleteExpenseReminder();
 
   const onConfirm = () => {
     if (!data) return;
     trigger(data, {
       onSuccess: () => {
-        toast.success("Category deleted successfully");
+        toast.success("Expense reminder completed and expense record added.");
         onClose();
       },
       onError: () => {
-        toast.error("Failed to delete category");
+        toast.error("Failed to complete expense reminder.");
       },
     });
   };
 
   return (
     <ResponsiveModal
-      title="Are you absolutely sure?"
-      description="This action cannot be undone. This will permanently delete your selected category."
+      title="Complete this expense?"
+      description="Confirming will mark the reminder as completed and create a new expense record. This action cannot be undone."
       contentProps={{ className: "md:max-w-[425px]" }}
       open={!!data}
       onOpenChange={onClose}
     >
       <div className="flex flex-col gap-1 md:flex-row-reverse w-full">
-        <Button
-          disabled={isMutating}
-          onClick={onConfirm}
-          variant={"destructive"}
-        >
+        <Button disabled={isMutating} onClick={onConfirm} variant={"default"}>
           Confirm
         </Button>
         <Button disabled={isMutating} onClick={onClose} variant={"secondary"}>

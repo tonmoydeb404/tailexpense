@@ -1,4 +1,4 @@
-import { ReminderCreateModal } from "~/components/modals/expense-reminder";
+import { ReminderCreateModal } from "~/components/modals/reminders";
 import { Input } from "~/components/ui/input";
 import type { TableType } from "./types";
 
